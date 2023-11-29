@@ -5,10 +5,11 @@
 <?import javafx.scene.text.*?>
 
 <?import javafx.scene.shape.Line?>
-<VBox prefHeight="596.0" prefWidth="214.0"
+<VBox prefHeight="696.0" prefWidth="314.0"
       style="-fx-background-color:#FFD5D5;"
       xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.example.gui.MenuInicialController">
+
 
     <ToolBar style="-fx-background-color:#F9A8A8;">
         <Button fx:id="BotonPerfil" maxHeight="30" maxWidth="100" minHeight="30" minWidth="100" onAction="#handleNuevo" style="-fx-background-color: #F89494;">

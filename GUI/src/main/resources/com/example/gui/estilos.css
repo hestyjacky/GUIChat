@@ -1,8 +1,16 @@
 /* estilos.css */
+.Ventana {
+    -fx-background-radius: 80;
+    -fx-border-radius: 80;
+    -fx-background-color: transparent;
+}
 
 .miVBox {
     -fx-background-image: url('/Babble%20Hub.png');
     -fx-background-size: cover;
+    -fx-border-radius: 60px;
+    -fx-background: #FFF;
+
 }
 
 .CorreoUser,
@@ -17,7 +25,7 @@
 
 .CorreoUser:focus, 
 .ContrasenaUser:focus{
-    -fx-border-color: #5BAAAD; /* Color del borde cuando el TextField está enfocado */
+    -fx-border-color: #000000; /* Color del borde cuando el TextField está enfocado */
 }
 
 .CorreoUser .text,
@@ -28,6 +36,6 @@
 
 .ContrasenaUser .text,
 .ContrasenaUser::input {
-    -fx-fill: rgb(255, 255, 255); /* Color del texto */
+    -fx-fill: rgb(171, 93, 93); /* Color del texto */
     -fx-font-weight: bold; /* Fuente en negrita */
 }

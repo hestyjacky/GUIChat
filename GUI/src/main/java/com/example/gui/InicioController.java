@@ -15,6 +15,9 @@ import java.io.IOException;
 
 public class InicioController {
     @FXML
+    public Text minimizeButton;
+
+    @FXML
     private Label welcomeText;
     @FXML
     private TextField CorreoUser;
@@ -22,6 +25,22 @@ public class InicioController {
     private TextField ContrasenaUser;
     @FXML
     public Text textUser;
+
+    @FXML
+    private void minimizeWindow() {
+        Stage stage = (Stage) minimizeButton.getScene().getWindow();
+        stage.setIconified(true);
+    }
+
+    @FXML
+    private void handleSalir(ActionEvent event) {
+        // Lógica para la acción "Guardar"
+        System.out.println("Salir...");
+
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
+    }
 
     @FXML
     protected void LogIn_ButtonClick(ActionEvent e) {
