@@ -36,6 +36,9 @@
         <VBox prefHeight="596.0" prefWidth="214.0">
             <Separator/>
             <Label text="HOLA" style="-fx-font-size: 16px;"/>
+
+            <Button text="PRUEBA" onAction="pruebaMas"/>
+
         </VBox>
     </AnchorPane>
 

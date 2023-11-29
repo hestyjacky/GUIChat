@@ -12,12 +12,19 @@ public class InicioApp extends Application {
     @Override
     public void start(Stage stage) throws IOException { // main
         FXMLLoader fxmlLoader = new FXMLLoader(InicioApp.class.getResource("Inicio.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 330, 450);
-        stage.setMinWidth(320);
-        stage.setMinHeight(440);
+        Scene scene = new Scene(fxmlLoader.load(), 668, 408);
 
-        stage.setMaxWidth(330);
-        stage.setMaxHeight(450);
+        /*
+        stage.setMinWidth(668);
+        stage.setMinHeight(408);
+
+        stage.setMaxWidth(668);
+        stage.setMaxHeight(408);
+
+         */
+
+        scene.getStylesheets().add(getClass().getResource("estilos.css").toExternalForm());
+
 
         stage.setTitle("Inicio de sesión");
         stage.setScene(scene);
