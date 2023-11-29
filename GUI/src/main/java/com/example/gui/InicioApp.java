@@ -26,7 +26,7 @@ public class InicioApp extends Application {
         scene.getStylesheets().add(getClass().getResource("estilos.css").toExternalForm());
 
 
-        stage.setTitle("Inicio de sesión");
+        stage.setTitle("Inicio");
         stage.setScene(scene);
         stage.onCloseRequestProperty().setValue(event -> System.out.println("\nEnd - Inicio!"));
         stage.show();
