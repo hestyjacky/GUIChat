@@ -36,7 +36,7 @@ public class InicioController {
     private void handleSalir(ActionEvent event) {
         // Lógica para la acción "Guardar"
         System.out.println("Salir...");
-
+        System.out.println("Gracias por su preferencia!");
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();

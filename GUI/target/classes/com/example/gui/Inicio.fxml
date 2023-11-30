@@ -19,7 +19,7 @@
         </padding>
 
         <VBox>
-            <HBox alignment="TOP_RIGHT"  spacing="4"  style="-fx-background-color: #000000;" >
+            <HBox alignment="TOP_RIGHT"  spacing="4">
                 <Button fx:id="BontonMinimizar"
                         maxHeight="30" maxWidth="30"
                         minHeight="30" minWidth="30"
