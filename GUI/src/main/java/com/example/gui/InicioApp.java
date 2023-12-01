@@ -9,27 +9,15 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-public class InicioApp extends Application {
-    private double xOffset = 0;
-    private double yOffset = 0;
+public class InicioApp extends Application{
 
     @Override
     public void start(Stage stage) throws IOException { // main
         FXMLLoader fxmlLoader = new FXMLLoader(InicioApp.class.getResource("Inicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 668, 408);
 
-        stage.initStyle(StageStyle.UNDECORATED);
-
-        // Manejar eventos del ratón para permitir que la ventana se mueva
-        scene.setOnMousePressed((MouseEvent event) -> {
-            xOffset = event.getSceneX();
-            yOffset = event.getSceneY();
-        });
-
-        scene.setOnMouseDragged((MouseEvent event) -> {
-            stage.setX(event.getScreenX() - xOffset);
-            stage.setY(event.getScreenY() - yOffset);
-        });
+        encabezado encabezado = new encabezado();
+        encabezado.moverVentana(stage,scene);
 
         scene.getStylesheets().add(getClass().getResource("estilos.css").toExternalForm());
 

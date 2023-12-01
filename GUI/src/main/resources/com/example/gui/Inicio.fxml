@@ -6,34 +6,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER"
-      styleClass="miVBox"
-      xmlns="http://javafx.com/javafx/17.0.2-ea"
-      style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: transparent;"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.InicioController">
+<VBox alignment="CENTER" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: transparent;" styleClass="miVBox" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.InicioController">
 
-    <VBox fx:id="Ventana"
-    styleClass="Ventana">
+    <VBox fx:id="Ventana" alignment="TOP_CENTER" styleClass="Ventana">
         <padding>
             <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
         </padding>
 
         <VBox>
-            <HBox alignment="TOP_RIGHT"  spacing="4">
-                <Button fx:id="BontonMinimizar"
-                        maxHeight="30" maxWidth="30"
-                        minHeight="30" minWidth="30"
-                        onAction="#handleSalir"
-                        style="-fx-background-color: #F89494;">
+            <HBox alignment="TOP_RIGHT" spacing="8">
+                <Button fx:id="Bonton_Minimizar" maxHeight="30" maxWidth="30" minHeight="30" minWidth="30" onAction="#Minimizar_encabezado" style="-fx-background-color: #F89494;">
                     <graphic>
-                        <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="mini" />
+                        <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="__" />
                     </graphic>
                 </Button>
-                <Button fx:id="BontonSalir"
-                        maxHeight="30" maxWidth="30"
-                        minHeight="30" minWidth="30"
-                        onAction="#handleSalir"
-                        style="-fx-background-color: #F89494;">
+                <Button fx:id="Boton_Maximizar" maxHeight="30" maxWidth="30" minHeight="30" minWidth="30" onAction="#MaximizarVentana" style="-fx-background-color: #F89494;">
+                    <graphic>
+                        <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="max" />
+                    </graphic>
+                </Button>
+                <Button fx:id="BontonSalir" maxHeight="30" maxWidth="30" minHeight="30" minWidth="30" onAction="#Salir_encabezado" style="-fx-background-color: #F89494;">
                     <graphic>
                         <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="X" />
                     </graphic>
@@ -41,13 +33,9 @@
             </HBox>
         </VBox>
 
+        <VBox maxHeight="10.0" minHeight="10.0" prefHeight="10.0" />
 
-
-
-        <HBox maxHeight="430.0" maxWidth="603.0"
-              minHeight="330.0" minWidth="450.0"
-              prefHeight="330.0" prefWidth="603.0"
-              style="-fx-background-color: #FFF3E3; -fx-background-radius: 80">
+        <HBox alignment="CENTER" maxHeight="430.0" maxWidth="603.0" minHeight="330.0" minWidth="450.0" prefHeight="330.0" prefWidth="603.0" style="-fx-background-color: #FFF3E3; -fx-background-radius: 80">
             <padding>
                 <Insets bottom="10.0" left="30.0" right="20.0" top="25.0" />
             </padding>
@@ -95,7 +83,7 @@
                 </GridPane>
 
 
-                <Label fx:id="welcomeText" prefHeight="18.0" prefWidth="202.0" style="-fx-font-size: 12px; -fx-font-weight: bold;">
+                <Label fx:id="Mensaje_Botones" prefHeight="18.0" prefWidth="202.0" style="-fx-font-size: 12px; -fx-font-weight: bold;">
                     <VBox.margin>
                         <Insets left="80.0" />
                     </VBox.margin></Label>

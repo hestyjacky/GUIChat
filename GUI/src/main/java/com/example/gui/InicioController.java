@@ -10,38 +10,21 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-public class InicioController {
+public class InicioController extends encabezado{
     @FXML
-    public Text minimizeButton;
-
-    @FXML
-    private Label welcomeText;
+    private Label Mensaje_Botones;
     @FXML
     private TextField CorreoUser;
     @FXML
     private TextField ContrasenaUser;
     @FXML
     public Text textUser;
-
     @FXML
-    private void minimizeWindow() {
-        Stage stage = (Stage) minimizeButton.getScene().getWindow();
-        stage.setIconified(true);
+    protected void SignUp_ButtonClick(){
+        Mensaje_Botones.setText("Abriendo página de registro...");
     }
-
-    @FXML
-    private void handleSalir(ActionEvent event) {
-        // Lógica para la acción "Guardar"
-        System.out.println("Salir...");
-        System.out.println("Gracias por su preferencia!");
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
-    }
-
     @FXML
     protected void LogIn_ButtonClick(ActionEvent e) {
         String correo = CorreoUser.getText();
@@ -49,44 +32,48 @@ public class InicioController {
 
         if (correo.isBlank() || contrasena.isBlank()){
             String user = "Ocupa llenar ambos campos...";
-            welcomeText.setText(user);
+            Mensaje_Botones.setText(user);
         }else{
-            //String user = "Datos: " + correo + " " + contrasena + " !";
             String user = " Log-in exitoso !";
-            welcomeText.setText(user);
-
+            Mensaje_Botones.setText(user);
 
             Node source = (Node) e.getSource();
             Stage stage = (Stage) source.getScene().getWindow();
             stage.close();
 
-            /*
-            // Cargar la nueva ventana
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuInicial.fxml"));
-                Parent root = loader.load();
-                Stage nuevaVentana = new Stage();
-                nuevaVentana.setScene(new Scene(root));
-
-                // Cerrar la ventana actual
-                Node source = (Node) e.getSource();
-                Stage stage = (Stage) source.getScene().getWindow();
-                stage.close();
-
-                // Mostrar la nueva ventana
-                nuevaVentana.show();
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-
-             */
+            abrirNuevaInterfaz("MenuInicial.fxml");
         }
-
     }
 
-    @FXML
-    protected void SignUp_ButtonClick(){
-        welcomeText.setText("Abriendo página de registro...");
+    private void abrirNuevaInterfaz(String rutaFXML) {
+        try {
+            // Cargar el nuevo FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
+            Parent root = fxmlLoader.load();
+
+            // Crear una nueva ventana para la nueva interfaz
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Menú");
+
+            // Configurar la escena con el nuevo contenido
+            Scene scene = new Scene(root);
+            nuevaVentana.setScene(scene);
+            nuevaVentana.setWidth(800);
+            nuevaVentana.setHeight(700);
+
+            nuevaVentana.setMinWidth(800);
+            nuevaVentana.setMinHeight(700);
+
+            encabezado encabezado = new encabezado();
+            encabezado.moverVentana(nuevaVentana,scene);
+
+            scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
+
+
+            // Mostrar la nueva ventana
+            nuevaVentana.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

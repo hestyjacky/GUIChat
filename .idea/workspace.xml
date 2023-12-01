@@ -5,13 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/encabezado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/estilos_MenuInicial.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/menuInicial.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/PruebaLoginAPP.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/PruebaLoginCONTROLLER.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Inicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Inicio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/MenuInicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/MenuInicial.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/PruebaLogin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/prueba.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Inicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Inicio.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicial.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/PruebaLogin.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/PruebaLoginAPP.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/PruebaLoginCONTROLLER.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/prueba.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -29,11 +59,55 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "mi__primera__chamba",
     "last_opened_file_path": "C:/Users/FDZja/IdeaProjects/tmp/GUIChat",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.gui" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.InicioApp">
+    <configuration name="InicioApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.gui.InicioApp" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuInicialApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.gui.MenuInicialApp" />
+      <module name="GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.InicioApp" />
+        <item itemvalue="Application.MenuInicialApp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,7 +116,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701313157179</updated>
-      <workItem from="1701313158331" duration="172000" />
+      <workItem from="1701313158331" duration="11920000" />
     </task>
     <servers />
   </component>

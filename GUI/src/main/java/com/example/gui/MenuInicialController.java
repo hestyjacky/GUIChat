@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MenuInicialController implements Initializable{
+public class MenuInicialController
+        extends encabezado
+        implements Initializable{
 
     // ----------------- TOOL BAR superior
     @FXML
@@ -26,16 +28,6 @@ public class MenuInicialController implements Initializable{
     private void handleAjustes(ActionEvent event) {
         // Lógica para la acción "Ajustes"
         System.out.println("Ajustes");
-    }
-
-    @FXML
-    private void handleSalir(ActionEvent event) {
-        // Lógica para la acción "Guardar"
-        System.out.println("Salir...");
-
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
     }
 
     @FXML
