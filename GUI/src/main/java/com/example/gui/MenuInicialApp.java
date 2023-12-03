@@ -3,16 +3,11 @@ package com.example.gui;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
 public class MenuInicialApp extends Application {
-    private double xOffset = 0;
-    private double yOffset = 0;
-
     @Override
     public void start(Stage stage) throws IOException { // main
         FXMLLoader fxmlLoader = new FXMLLoader(InicioApp.class.getResource("MenuInicial.fxml"));

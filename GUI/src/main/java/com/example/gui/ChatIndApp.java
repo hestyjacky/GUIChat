@@ -1,5 +1,6 @@
 package com.example.gui;
 
+import com.example.gui.InicioApp;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,19 +12,7 @@ public class ChatIndApp extends Application {
     @Override
     public void start(Stage stage) throws IOException { // main
         FXMLLoader fxmlLoader = new FXMLLoader(InicioApp.class.getResource("ChatInd.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 550, 640);
-
-        stage.setAlwaysOnTop(true);
-
-        stage.setMinWidth(560);
-        stage.setMinHeight(680);
-
-        stage.setMaxWidth(550);
-        stage.setMaxHeight(670);
-
-
-
-
+        Scene scene = new Scene(fxmlLoader.load(), 478, 396);
 
         stage.setTitle("Chats Individual 1");
         stage.setScene(scene);

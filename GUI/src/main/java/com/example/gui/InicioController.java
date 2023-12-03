@@ -1,5 +1,6 @@
 package com.example.gui;
 
+import com.example.gui.encabezado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +13,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
 
-public class InicioController extends encabezado{
+public class InicioController extends encabezado {
     @FXML
     private Label Mensaje_Botones;
     @FXML

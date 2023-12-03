@@ -20,11 +20,10 @@ import javafx.scene.text.TextFlow;
 import java.awt.*;
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ChatIndController implements Initializable {
+public class ServidorController implements Initializable {
     @FXML
     private Button button_send;
     @FXML
@@ -33,17 +32,11 @@ public class ChatIndController implements Initializable {
     private VBox vbox_messages;
     @FXML
     private ScrollPane sp_main;
-    private Client client;
+    private Server server;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("holaaa");
-        try{
-            client = new Client(new Socket("localhost", 1408)); // ip ---------
-            System.out.println("connected");
-
-        }catch (IOException e){
-
-        }
+        server = new Server(1408);
 //-------------------------------------------
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -52,7 +45,7 @@ public class ChatIndController implements Initializable {
             }
         });
 
-        client.receiveMessageFromServer(vbox_messages);
+        server.receiveMessageFromClient(vbox_messages);
 
         button_send.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -73,19 +66,19 @@ public class ChatIndController implements Initializable {
                     hBox.getChildren().add(textFlow);
                     vbox_messages.getChildren().add(hBox);
 
-                    client.sendMessagesToServer(messageToSend);
+                    server.sendMessagesToClient(messageToSend);
                     tf_messages.clear();
                 }
             }
         });
     }
 
-    public static void addLabel(String messageFromServer, VBox vbox){
+    public static void addLabel(String messageFromClient, VBox vbox){
         HBox hBox = new HBox();
         hBox.setAlignment(Pos.CENTER_LEFT);
         hBox.setPadding(new Insets(5,5,5,10));
 
-        Text text = new Text(messageFromServer);
+        Text text = new Text(messageFromClient);
         TextFlow textFlow = new TextFlow(text);
         textFlow.setStyle("-fx-background-color: rgb(233,233,235); -fx-background-radius: 20px");
         textFlow.setPadding(new Insets(5,10,5,10));

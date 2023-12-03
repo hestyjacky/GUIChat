@@ -98,7 +98,10 @@
                             </HBox>
                         </ToolBar>
 
-                        <ScrollPane prefHeight="163" prefWidth="50" style="-fx-background-color: #FFB4B4;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+                        <ScrollPane prefHeight="163" prefWidth="50"
+                                    style="-fx-background-color: #FFB4B4;"
+                                    xmlns="http://javafx.com/javafx/16"
+                                    xmlns:fx="http://javafx.com/fxml/1">
                             <content>
                                 <VBox style="-fx-background-color: #FFB4B4; -fx-background: #FFB4B4;"> <!-- color de fondo de los botones-->
                                     <Separator />

@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -18,13 +19,14 @@ public class MenuInicialController
         implements Initializable{
 
     // ----------------- TOOL BAR superior
+
     @FXML
     private void handleNuevo(ActionEvent event) {
         // Lógica para la acción "Nuevo"
-        System.out.println("Nuevo");
+        System.out.println("Nuevo: contacto o grupo ?");
     }
 
-    @FXML
+        @FXML
     private void handleAjustes(ActionEvent event) {
         // Lógica para la acción "Ajustes"
         System.out.println("Ajustes");

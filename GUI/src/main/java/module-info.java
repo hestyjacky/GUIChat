@@ -5,7 +5,9 @@ module com.example.gui {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires java.desktop;
 
     opens com.example.gui to javafx.fxml;
     exports com.example.gui;
+
 }
