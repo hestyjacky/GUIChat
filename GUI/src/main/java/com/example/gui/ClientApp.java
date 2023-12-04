@@ -1,6 +1,5 @@
 package com.example.gui;
 
-import com.example.gui.InicioApp;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ChatIndApp extends Application {
+public class ClientApp extends Application {
     @Override
     public void start(Stage stage) throws IOException { // main
         FXMLLoader fxmlLoader = new FXMLLoader(InicioApp.class.getResource("ChatInd.fxml"));

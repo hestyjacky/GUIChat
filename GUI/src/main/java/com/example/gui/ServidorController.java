@@ -36,7 +36,7 @@ public class ServidorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("holaaa");
-        server = new Server(1408);
+        //server = new Server(1408);
 //-------------------------------------------
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -45,7 +45,7 @@ public class ServidorController implements Initializable {
             }
         });
 
-        server.receiveMessageFromClient(vbox_messages);
+        //server.receiveMessageFromClient(vbox_messages);
 
         button_send.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -66,7 +66,7 @@ public class ServidorController implements Initializable {
                     hBox.getChildren().add(textFlow);
                     vbox_messages.getChildren().add(hBox);
 
-                    server.sendMessagesToClient(messageToSend);
+                    //server.sendMessagesToClient(messageToSend);
                     tf_messages.clear();
                 }
             }

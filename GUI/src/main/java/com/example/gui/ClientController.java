@@ -17,14 +17,13 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.control.TextField;
 import javafx.scene.text.TextFlow;
-import java.awt.*;
+
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ChatIndController implements Initializable {
+public class ClientController implements Initializable {
     @FXML
     private Button button_send;
     @FXML
@@ -37,6 +36,7 @@ public class ChatIndController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("holaaa");
+        /*
         try{
             client = new Client(new Socket("localhost", 1408)); // ip ---------
             System.out.println("connected");
@@ -44,6 +44,8 @@ public class ChatIndController implements Initializable {
         }catch (IOException e){
 
         }
+
+         */
 //-------------------------------------------
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -52,7 +54,7 @@ public class ChatIndController implements Initializable {
             }
         });
 
-        client.receiveMessageFromServer(vbox_messages);
+        //client.receiveMessageFromServer(vbox_messages);
 
         button_send.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -73,7 +75,7 @@ public class ChatIndController implements Initializable {
                     hBox.getChildren().add(textFlow);
                     vbox_messages.getChildren().add(hBox);
 
-                    client.sendMessagesToServer(messageToSend);
+                    //client.sendMessagesToServer(messageToSend);
                     tf_messages.clear();
                 }
             }
