@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class ClientHandler implements Runnable{
+    // Array de usuarios conectados
     public static ArrayList<ClientHandler> clientHandlers = new ArrayList<>(); // broadcast the message with every client
     private Socket socket; // get comunication | conections
     private BufferedReader bufferedReader; // read data
@@ -17,7 +18,8 @@ public class ClientHandler implements Runnable{
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())); // read things
             this.client_Username = bufferedReader.readLine(); // the client enter his username
             clientHandlers.add(this); // has joined the groupchat
-            broadcastMessage("SERVER: "+client_Username+ " has entered the chat..."); // all messages are send to all the clients in the group
+            broadcastMessage("SERVER: "+client_Username.split("\\:")[0]+ " has entered the chat..."); // all messages are send to all the clients in the group
+            //broadcastMessage(client_Username);
         }catch (IOException e){
             closeEverything(socket,bufferedReader,bufferedWriter);
         }

@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+
 
 public class ClientController implements Initializable {
     @FXML
@@ -33,20 +35,27 @@ public class ClientController implements Initializable {
     @FXML
     private ScrollPane sp_main;
     private Client client;
+    Scanner scanner = new Scanner(System.in);
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("holaaa");
-        /*
-        try{
-            client = new Client(new Socket("localhost", 1408)); // ip ---------
-            System.out.println("connected");
+        System.out.println("Enter your username for the groupchat: ");
+        String username = scanner.nextLine();
+        //String username = "jacks";
 
-        }catch (IOException e){
 
+        if (!username.isEmpty()){
+            try{
+                Socket socket = new Socket("localhost", 1408); // ip ---------
+                client = new Client(socket, username);
+                System.out.println("connected");
+                System.out.println(socket);
+            }catch (IOException e){
+                System.err.println("error en initialize en clientController");
+            }
         }
 
-         */
-//-------------------------------------------
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
@@ -54,7 +63,7 @@ public class ClientController implements Initializable {
             }
         });
 
-        //client.receiveMessageFromServer(vbox_messages);
+        client.receiveMessageFromServer(vbox_messages);
 
         button_send.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -75,7 +84,7 @@ public class ClientController implements Initializable {
                     hBox.getChildren().add(textFlow);
                     vbox_messages.getChildren().add(hBox);
 
-                    //client.sendMessagesToServer(messageToSend);
+                    client.sendMessagesToServer(messageToSend);
                     tf_messages.clear();
                 }
             }

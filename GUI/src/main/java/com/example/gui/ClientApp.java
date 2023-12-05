@@ -17,6 +17,7 @@ public class ClientApp extends Application {
         stage.setScene(scene);
         stage.onCloseRequestProperty().setValue(event -> System.out.println("\nEnd - Chats individual 1!"));
         stage.show();
+
     }
 
     public static void main(String[] args) {
