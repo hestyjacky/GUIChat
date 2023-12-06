@@ -22,7 +22,7 @@
                 <VBox fx:id="vbox_messages" prefHeight="248" prefWidth="412"/>
             </content>
         </ScrollPane>
-        <Label layoutX="114" layoutY="26" text="chat ind cliente">
+        <Label layoutX="114" layoutY="26" text="chat ind cliente" fx:id="nombre">
             <font>
                 <Font name="Arial Rounded MT Bold" size="23"/>
             </font>

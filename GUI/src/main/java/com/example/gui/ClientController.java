@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.ScrollPane;
@@ -26,6 +27,7 @@ import java.util.Scanner;
 
 
 public class ClientController implements Initializable {
+    public Label nombre;
     @FXML
     private Button button_send;
     @FXML
@@ -55,6 +57,8 @@ public class ClientController implements Initializable {
                 System.err.println("error en initialize en clientController");
             }
         }
+
+        nombre.setText("Receiver");
 
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override

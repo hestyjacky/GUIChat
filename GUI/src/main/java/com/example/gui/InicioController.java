@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.net.Socket;
 
 public class InicioController extends encabezado {
     @FXML
@@ -27,7 +28,7 @@ public class InicioController extends encabezado {
         Mensaje_Botones.setText("Abriendo página de registro...");
     }
     @FXML
-    protected void LogIn_ButtonClick(ActionEvent e) {
+    protected void LogIn_ButtonClick(ActionEvent e) throws IOException {
         String correo = CorreoUser.getText();
         String contrasena = ContrasenaUser.getText();
 
@@ -35,6 +36,11 @@ public class InicioController extends encabezado {
             String user = "Ocupa llenar ambos campos...";
             Mensaje_Botones.setText(user);
         }else{
+            Socket socket = new Socket("localhost", 1408); // ip ---------
+            String query = "select * from usuarios where contrasena="+contrasena+" and correo="+correo+";\n";
+            //DatabaseSystem BD = new DatabaseSystem(query);
+
+
             String user = " Log-in exitoso !";
             Mensaje_Botones.setText(user);
 
@@ -45,6 +51,8 @@ public class InicioController extends encabezado {
             abrirNuevaInterfaz("MenuInicial.fxml");
         }
     }
+
+
 
     private void abrirNuevaInterfaz(String rutaFXML) {
         try {

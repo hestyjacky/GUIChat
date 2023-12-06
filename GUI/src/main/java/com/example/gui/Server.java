@@ -5,17 +5,15 @@ import javafx.scene.layout.VBox;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-
-public class Server {
-
+public class Server{
     private ServerSocket serverSocket;
-
     public Server(ServerSocket serverSocket) {
         this.serverSocket = serverSocket;
     }
 
     public void startServer() {
         try {
+
             while (!serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
                 System.out.println("New client has connected");
@@ -43,6 +41,12 @@ public class Server {
         ServerSocket serverSocket = new ServerSocket(1408);
         Server server = new Server(serverSocket);
         server.startServer();
+    }
+
+    public static void armarQueryToDatabase(){
+        //inserts
+        // sender, receiver, mensaje
+
     }
 
     /*
