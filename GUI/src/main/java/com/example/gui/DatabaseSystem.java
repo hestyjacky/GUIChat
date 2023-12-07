@@ -12,76 +12,36 @@ public class DatabaseSystem {
     public String line;
     public String[] columnNames;
     public String[] selectedColumns;
+    public StringBuilder commandBuilder = new StringBuilder();
+    boolean multiLineInput = false;
 
     public  DatabaseSystem(String  queryDeCliente){
-        //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder commandBuilder = new StringBuilder();
-        boolean multiLineInput = false; // Bandera para controlar comandos multilinea
-
-        System.out.print("SQL> "); // Mostrar el "SQL>" solo una vez al inicio
-
         try {
-            while (true) {
+            //while (true) {
                 String line = queryDeCliente;
                 commandBuilder.append(line).append(" ");
 
                 if (line.trim().endsWith(";")) {
-                    // El comando está completo y no es una entrada multilinea
                     String command = commandBuilder.toString().trim();
 
-                    if (command.equalsIgnoreCase("exit;")) {
-                        break;
-                    } else if (command.toUpperCase().startsWith("SHOW TABLES;")) {
-                        // Mostrar la lista de tablas en la carpeta de trabajo
-                        showTables();
-                    } else if (command.toUpperCase().startsWith("CREATE")) {
-                        // Procesar el comando CREATE TABLE
-                        createTable(command);
-                    } else if (command.toUpperCase().startsWith("DROP")) {
-                        // Procesar el comando DROP TABLE
-                        String tableName = command.substring(10, command.length() - 1).trim();
-                        dropTable(tableName);
-                    } else if (command.toUpperCase().startsWith("INSERT INTO")) {
-                        // Procesar el comando INSERT INTO
-                        insertData(command);
-                    } else if (command.toUpperCase().startsWith("SELECT")) {
-                        // procedimiento normal
-                        selectData(command);
-                        break;
-                    } else if (command.toUpperCase().startsWith("UPDATE")) {
-                        // Procesar consultas UPDATE
-                        updateData(command);
-                    } else if (command.toUpperCase().startsWith("DELETE")) {
-                        // Procesar el comando DELETE
-                        deleteData(command);
-                    } else {
-                        System.out.println("Comando no válido. " +
-                                "\nIntroduce 'exit' para salir, o " +
-                                "\n'USE $PATH$' para establecer la ruta de trabajo.");
-                    }
-                    // Restablecer el StringBuilder y la bandera para el próximo comando
+                    evaluarQuery(command);
                     commandBuilder.setLength(0);
                     multiLineInput = false;
-                    //System.out.print("SQL> "); // Volver a mostrar el "SQL>" para el siguiente comando
                 } else {
-                    // El comando se extiende en múltiples líneas
                     multiLineInput = true;
                 }
-            }
+            //}
         } catch (Exception e) {
-            // Captura cualquier excepción y muestra un mensaje de error
             System.err.println(" Fallo con -> " + e.getMessage());
         }
         //return ("1");
     }
     public static String currentDatabase = "USERS";
     public static void main(String[] args) throws IOException {
-        String query = "select * from usuarios where id = jacky and correo = jacky@gmail and contraseña = 123;";
+        String query = "select * from usuarios where id = angela and correo = angela@gmail;";// and contraseña = 123;";
         DatabaseSystem BD = new DatabaseSystem(query);
     }
-
-
-    public void selectData(String query) {
+    public String selectData(String query) {
         String respuesta="";
         // Expresión regular para SELECT con WHERE
         Pattern patternWithWhere = Pattern.compile("SELECT (.+) FROM (\\w+) WHERE (.+);", Pattern.CASE_INSENSITIVE);
@@ -101,8 +61,8 @@ public class DatabaseSystem {
                 if (whereCondition == null || whereCondition.isEmpty()) {
                     System.out.println("Error: Falta la cláusula WHERE en la consulta SELECT.");
                     respuesta+="error";
-                    //return respuesta;
-                    return; // Salir del método sin cerrar el programa
+                    return respuesta;
+                    //return; // Salir del método sin cerrar el programa
                 }
 
                 String tableFilePath = currentDatabase + File.separator + tableName + ".csv";
@@ -112,16 +72,14 @@ public class DatabaseSystem {
 
                     if (!tableFile.exists()) {
                         System.out.println("La tabla '" + tableName + "' no existe.");
-                        respuesta+="no";
-                        return;
+                        respuesta+="no existe la tabla";
+                        return respuesta;
                     }
 
                     BufferedReader bufferedReader = new BufferedReader(new FileReader(tableFile));
 
                     String headerLine = bufferedReader.readLine(); // Leer el encabezado
-                    //System.out.println(headerLine);
                     String[] columnNames = headerLine.split("¬");
-                    //System.out.println(columnNames);
                     //respuesta+=columnNames+"\n";
 
                     //System.out.println("Datos seleccionados:"); ----------------
@@ -134,26 +92,18 @@ public class DatabaseSystem {
                             try {
                                 rowData = line.split("¬");
                                 if (evaluateWhereConditionSelect(headerLine, rowData, whereCondition)) {
-                                    // Mostrar solo los datos numéricos de la fila si evaluateWhereConditionSelect devuelve true
                                     respuesta += String.join("\t", Arrays.copyOfRange(rowData, 0, rowData.length));
                                     System.out.println(String.join("\t", Arrays.copyOfRange(rowData, 0, rowData.length)));
-                                    //return respuesta;
+                                    return respuesta;
                                 }
                             } catch (ArrayIndexOutOfBoundsException e) {
-                                // Continuar leyendo el siguiente registro en caso de error
                                 continue;
                             }
                         }
                     } else {
-                        // Mostrar columnas específicas
                         String[] selectedColumns = columnsPart.split("¬");
-                        /*for (String column : selectedColumns) {
 
-                            //System.out.print(column + "\t");
-                            //respuesta+=column+"\t";
-                        }
-
-                        //respuesta+="\n";*/
+                        respuesta+="\n";
                         System.out.println(); // Nueva línea después de mostrar los nombres de las columnas
 
                         String line;
@@ -162,37 +112,28 @@ public class DatabaseSystem {
                                 rowData = line.split("¬");
                                 if (evaluateWhereConditionSelect(headerLine, rowData, whereCondition)) {
                                     for (String columnName : selectedColumns) {
-                                        // Obtener el índice directamente del array columnNames
                                         int columnIndex = Arrays.asList(columnNames).indexOf(columnName.trim());
                                         if (columnIndex >= 0) {
-                                            //System.out.print(rowData[columnIndex] + "\t");
                                             respuesta+=rowData[columnIndex] + "\t";
                                         } else {
-                                            //System.out.print("\t"); // Columna vacía si no se encuentra
                                             respuesta+="\t";
                                         }
                                     }
-                                    //System.out.println(); // Nueva línea después de mostrar una fila de datos
-                                    respuesta+="\n";
-
-                                    // Entrar a la carpeta del usuario
-                                    //enterUserFolder(rowData[0]);
+                                    respuesta+="\n"; // ---------- aqui tambien return?
                                 }
                             } catch (ArrayIndexOutOfBoundsException e) {
-                                // Continuar leyendo el siguiente registro en caso de error
                                 continue;
                             }
                         }
                     }
                     bufferedReader.close();
                 } catch (IOException e) {
-                    //System.err.println("Error al seleccionar datos de la tabla: " + e.getMessage());
                     respuesta+="ERROR al seleccionar los datos de la tabla";
+                    return respuesta;
                 }
             } catch (Exception e) {
-                //System.err.println("Error al ejecutar SELECT con WHERE: " + e.getMessage());
                 respuesta+="ERROR al ejecutar select con where";
-
+                return respuesta;
             }
 
         } else if (matcherWithoutWhere.find()) {
@@ -205,25 +146,19 @@ public class DatabaseSystem {
                 try {
                     File tableFile = new File(tableFilePath);
                     if (!tableFile.exists()) {
-                        //System.out.println("La tabla '" + tableName + "' no existe.");
                         respuesta+="no existe la tabla";
-                        return;
+                        return respuesta;
                     }
 
                     BufferedReader bufferedReader = new BufferedReader(new FileReader(tableFile));
 
                     String headerLine = bufferedReader.readLine();
-                    //System.out.println(headerLine);
                     columnNames = headerLine.split("¬");
                     System.out.println(columnNames);
-                    //respuesta+=columnNames+;
-
-                    //System.out.println("Datos seleccionados:");
+                    respuesta+=columnNames;
 
                     // Verificar si se solicitan todas las columnas con *
                     if (columnsPart.equals("*")) {
-                        // Mostrar todas las columnas
-                        //System.out.println(headerLine);
 
                         String line;
                         while ((line = bufferedReader.readLine()) != null) {
@@ -233,18 +168,16 @@ public class DatabaseSystem {
                                     //System.out.print(data + "\t");
                                     respuesta+=data + "\t";
                                 }
-                                //System.out.println();
                                 respuesta+="\n";
+                                return respuesta;
                             } catch (ArrayIndexOutOfBoundsException var19) {
                             }
                         }
                     } else {
-                        // Mostrar columnas específicas
                         String[] selectedColumns = columnsPart.split("¬");
                         for (String column : selectedColumns) {
                             //System.out.print(column + "\t");
                         }
-                        //System.out.println(); // Nueva línea después de mostrar los nombres de las columnas
 
                         String line;
                         while ((line = bufferedReader.readLine()) != null) {
@@ -258,34 +191,30 @@ public class DatabaseSystem {
                                         System.out.print(rowData[columnIndex] + "\t");
                                         respuesta+= rowData[columnIndex] + "\t";
                                     } else {
-                                        //System.out.print("\t"); // Columna vacía si no se encuentra
                                         respuesta+= "\t";
                                     }
                                 }
-                                //System.out.println(); // Nueva línea después de mostrar una fila de datos
                                 respuesta+="\n";
-                                // Entrar a la carpeta del usuario
-                                //enterUserFolder(rowData[0]);
+                                return respuesta;
                             } catch (ArrayIndexOutOfBoundsException e) {
-                                // Continuar leyendo el siguiente registro en caso de error
                                 continue;
                             }
                         }
                     }
                     bufferedReader.close();
                 } catch (IOException var21) {
-                    //System.out.println("Error al seleccionar datos de la tabla: " + var21.getMessage());
                     respuesta+="Error al seleccionar datos de la tabla";
+                    return respuesta;
                 }
             } catch (Exception e) {
-                //System.err.println("Error al ejecutar SELECT sin WHERE: " + e.getMessage());
                 respuesta+="Error al ejecutar SELECT sin WHERE";
+                return respuesta;
             }
         } else {
-            //System.out.println("Error: Sintaxis incorrecta para SELECT.");
             respuesta+="Error: Sintaxis incorrecta para SELECT.";
+            return respuesta;
         }
-        //return respuesta;
+        return respuesta;
     }
     public boolean evaluateWhereConditionSelect(String headerLine, String[] columns, String whereCondition) {
         String[] columnNames = headerLine.split("¬");
@@ -309,7 +238,6 @@ public class DatabaseSystem {
                 String operator = conditionComponents[1];
                 String rightOperand = conditionComponents[2];
 
-                // Verificar si la columna especificada en la condición WHERE existe en el encabezado
                 if (!Arrays.asList(columnNames).contains(leftOperand)) {
                     System.out.println("Error: La columna especificada en la condición WHERE no existe.");
                     return false;
@@ -318,7 +246,6 @@ public class DatabaseSystem {
                 int columnIndex = getColumnIndex(columnNames, leftOperand);
                 String columnValue = columns[columnIndex].trim();
 
-                // Evaluar la condición de la operación (por ejemplo, "id = 27")
                 boolean operationResult = evaluateOperation(columnValue, operator, rightOperand);
 
                 // Ajustar la lógica para devolver false si al menos una condición no se cumple
@@ -328,7 +255,6 @@ public class DatabaseSystem {
                 }
             }
 
-            // Si todas las condiciones AND se cumplen, setear que al menos una condición OR se cumplió
             if (allAndConditionsSatisfied) {
                 return true;
             }
@@ -336,7 +262,6 @@ public class DatabaseSystem {
         return atLeastOneConditionSatisfied;
     }
     private void enterUserFolder(String userId) {
-       // String userFolderPath = currentDatabase + File.separator + "USERS" + File.separator + userId;
         String userFolderPath = userId;
 
         System.out.println("Intentando acceder a la carpeta: " + userFolderPath);
@@ -350,54 +275,69 @@ public class DatabaseSystem {
         }
     }
 
-
-    public void showTables() {
-        String respuesta = "";
-        if (currentDatabase.isEmpty()) {
-            //System.out.println("Error: Ruta de trabajo no especificada.");
-            respuesta+="Error: Ruta de trabajo no especificada.";
-            return;
-        }
-
-        File folder = new File(currentDatabase);
-
-        if (!folder.exists() || !folder.isDirectory()) {
-            System.out.println("Error: La carpeta de trabajo especificada no existe o no es una carpeta.");
-            return;
-        }
-
-        File[] files = folder.listFiles();
-
-        if (files != null && files.length > 0) {
-            System.out.println("Tablas disponibles en la base de datos '" + currentDatabase + "':");
-
-            for (File file : files) {
-                if (file.isFile() && file.getName().toLowerCase().endsWith(".csv")) {
-                    System.out.println(file.getName().replace(".csv", ""));
-                }
-            }
+    private String evaluarQuery(String command){
+        if (command.equalsIgnoreCase("exit;")) {
+            return "exit;";
+        } else if (command.toUpperCase().startsWith("SHOW TABLES;")) {
+            showTables();
+        } else if (command.toUpperCase().startsWith("CREATE")) {
+            createTable(command);
+        } else if (command.toUpperCase().startsWith("DROP")) {
+            String tableName = command.substring(10, command.length() - 1).trim();
+            dropTable(tableName);
+        } else if (command.toUpperCase().startsWith("INSERT INTO")) {
+            insertData(command);
+        } else if (command.toUpperCase().startsWith("SELECT")) {
+            selectData(command);
+        } else if (command.toUpperCase().startsWith("UPDATE")) {
+            updateData(command);
+        } else if (command.toUpperCase().startsWith("DELETE")) {
+            deleteData(command);
         } else {
-            System.out.println("No hay tablas en la carpeta de trabajo.");
+            return "Comando no válido. " +
+                    "\nIntroduce 'exit' para salir, o " +
+                    "\n'USE $PATH$' para establecer la ruta de trabajo.";
         }
+        return "Comando no válido. " +
+                "\nIntroduce 'exit' para salir, o " +
+                "\n'USE $PATH$' para establecer la ruta de trabajo.";
     }
 
 
 
 
+    public String showTables() {
+        String respuesta = "";
+        if (currentDatabase.isEmpty()) {
+            respuesta+="Error: Ruta de trabajo no especificada.";
+            return respuesta;
+        }
 
+        File folder = new File(currentDatabase);
 
+        if (!folder.exists() || !folder.isDirectory()) {
+            respuesta+="Error: La carpeta de trabajo especificada no existe o no es una carpeta.";
+            return respuesta;
+        }
 
+        File[] files = folder.listFiles();
 
+        if (files != null && files.length > 0) {
+            //System.out.println("Tablas disponibles en la base de datos '" + currentDatabase + "':");
 
+            for (File file : files) {
+                if (file.isFile() && file.getName().toLowerCase().endsWith(".csv")) {
+                    respuesta+=(file.getName().replace(".csv", ""));
+                }
+            }
+            return respuesta;
+        } else {
+            respuesta+="No hay tablas en la carpeta de trabajo.";
+            return respuesta;
+        }
+    }
 
-
-
-
-
-
-    //CREATE TABLE alumnos (id int, nombre varchar, correo varchar);
     public void createTable(String query) {
-        // Ejemplo de comando SQL: CREATE TABLE tablename (column1 datatype, column2 datatype, ...);
         Pattern pattern = Pattern.compile("CREATE[\\s\\S]*?TABLE\\s+(\\w+)\\s*\\(([^;]+);\\)?", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(query);
 
@@ -454,12 +394,7 @@ public class DatabaseSystem {
             System.out.println("La tabla '" + tableName + "' no existe.");
         }
     }
-
-
-
-    //INSER INTO ALUMNOS
-    //INSERT INTO alumnos (id, nombre, correo) VALUES (20, Hestybalyz, Hesty20@ipv.edu.mx);
-    public void insertData(String query) {
+    public String insertData(String query) {
         Pattern pattern = Pattern.compile("INSERT INTO (\\w+) \\((.*?)\\) VALUES \\((.*?)\\);", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(query);
 
@@ -472,8 +407,7 @@ public class DatabaseSystem {
             String[] values = valuesPart.split(",");
 
             if (columnNames.length != values.length) {
-                System.out.println("Error: La cantidad de columnas no coincide con la cantidad de valores.");
-                return;
+                return "Error: La cantidad de columnas no coincide con la cantidad de valores.";
             }
 
             String tableFilePath = currentDatabase + File.separator + tableName + ".csv";
@@ -489,6 +423,7 @@ public class DatabaseSystem {
                     for (String columnName : columnNames) {
                         headerRow.append(columnName.trim()).append(",");
                     }
+                    //----------------------------------------------------------------------------
                     bufferedWriter.write(headerRow.toString());
                     bufferedWriter.newLine();
                 }
@@ -508,18 +443,14 @@ public class DatabaseSystem {
                 bufferedWriter.close();
 
                 // Una vez que hayas insertado los datos, puedes imprimir un mensaje de confirmación
-                System.out.println("Datos insertados en la tabla '" + tableName + "'.");
+                return "Datos insertados en la tabla '" + tableName + "'.";
             } catch (IOException e) {
-                System.out.println("Error al insertar datos en la tabla: " + e.getMessage());
+                return  "Error al insertar datos en la tabla: " + e.getMessage();
             }
         } else {
-            System.out.println("Error: Sintaxis incorrecta para INSERT INTO.");
+            return "Error: Sintaxis incorrecta para INSERT INTO.";
         }
     }
-
-
-    //DELETE FROM ALUMNOS WHERE
-    //DELETE FROM ALUMNOS WHERE id = 27;
     public void deleteData(String query) {
         Pattern pattern = Pattern.compile("DELETE FROM (\\w+)(?: WHERE (.*));", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(query);
@@ -602,7 +533,6 @@ public class DatabaseSystem {
 
                 String columnValue = columns[columnIndex].trim();
 
-                // Evaluar la condición de la operación (por ejemplo, "id = 27")
                 boolean operationResult = evaluateOperation(columnValue, operator, rightOperand);
 
                 if (!operationResult && andConditions.length > 1) {
@@ -628,7 +558,6 @@ public class DatabaseSystem {
         }
         return -1;
     }
-
     public void updateData(String query) {
         Pattern pattern = Pattern.compile("UPDATE (\\w+) SET (.+) WHERE (.+);", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(query);
