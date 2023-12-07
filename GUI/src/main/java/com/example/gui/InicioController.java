@@ -36,9 +36,15 @@ public class InicioController extends encabezado {
             String user = "Ocupa llenar ambos campos...";
             Mensaje_Botones.setText(user);
         }else{
-            Socket socket = new Socket("localhost", 1408); // ip ---------
-            String query = "select * from usuarios where contrasena="+contrasena+" and correo="+correo+";\n";
-            //DatabaseSystem BD = new DatabaseSystem(query);
+            //Socket socket = new Socket("localhost", 1408); // ip ---------
+            String query = "select * from usuarios where contraseña = "+contrasena+" and correo = "+correo+";\n";
+            DatabaseSystem BD = new DatabaseSystem(query);
+
+            /*/ ????
+            String[] partes = BD.toString().split("\t");
+            System.out.println(partes);
+             */
+
 
 
             String user = " Log-in exitoso !";
@@ -48,7 +54,7 @@ public class InicioController extends encabezado {
             Stage stage = (Stage) source.getScene().getWindow();
             stage.close();
 
-            abrirNuevaInterfaz("MenuInicial.fxml");
+            //abrirNuevaInterfaz("MenuInicial.fxml");
         }
     }
 

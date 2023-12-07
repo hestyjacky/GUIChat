@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/USERS/grupos.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/DatabaseSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/DatabaseSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/USERS/chats.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/chats.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +64,7 @@
       <recent name="com.example.gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DatabaseSystem">
+  <component name="RunManager" selected="Application.InicioApp">
     <configuration name="ClientApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.gui.ClientApp" />
       <module name="GUI" />
@@ -142,11 +139,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InicioApp" />
         <item itemvalue="Application.DatabaseSystem" />
         <item itemvalue="Application.MenuInicialApp" />
         <item itemvalue="Application.ClientApp" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.InicioApp" />
       </list>
     </recent_temporary>
   </component>
@@ -170,7 +167,7 @@
       <workItem from="1701790425158" duration="4698000" />
       <workItem from="1701877691528" duration="15873000" />
       <workItem from="1701906676970" duration="7272000" />
-      <workItem from="1701921756464" duration="1626000" />
+      <workItem from="1701921756464" duration="2420000" />
     </task>
     <servers />
   </component>
