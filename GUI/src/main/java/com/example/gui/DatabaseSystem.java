@@ -15,7 +15,8 @@ public class DatabaseSystem {
     public StringBuilder commandBuilder = new StringBuilder();
     boolean multiLineInput = false;
 
-    public  DatabaseSystem(String  queryDeCliente){
+    public String DatabaseSystemStr(String  queryDeCliente){
+        String respconstr="";
         try {
             //while (true) {
                 String line = queryDeCliente;
@@ -24,7 +25,8 @@ public class DatabaseSystem {
                 if (line.trim().endsWith(";")) {
                     String command = commandBuilder.toString().trim();
 
-                    evaluarQuery(command);
+                    respconstr+=evaluarQuery(command);
+                    //System.out.println("Reapuwat constructor; "+respconstr);
                     commandBuilder.setLength(0);
                     multiLineInput = false;
                 } else {
@@ -34,12 +36,13 @@ public class DatabaseSystem {
         } catch (Exception e) {
             System.err.println(" Fallo con -> " + e.getMessage());
         }
-        //return ("1");
+        return respconstr;
     }
     public static String currentDatabase = "USERS";
     public static void main(String[] args) throws IOException {
         String query = "select * from usuarios where id = angela and correo = angela@gmail;";// and contraseña = 123;";
-        DatabaseSystem BD = new DatabaseSystem(query);
+        DatabaseSystem BD = new DatabaseSystem();
+        BD.DatabaseSystemStr(query);
     }
     public String selectData(String query) {
         String respuesta="";
@@ -93,12 +96,12 @@ public class DatabaseSystem {
                                 rowData = line.split("¬");
                                 if (evaluateWhereConditionSelect(headerLine, rowData, whereCondition)) {
                                     respuesta += String.join("\t", Arrays.copyOfRange(rowData, 0, rowData.length));
-                                    System.out.println(String.join("\t", Arrays.copyOfRange(rowData, 0, rowData.length)));
-                                    return respuesta;
+                                    //System.out.println(String.join("\t", Arrays.copyOfRange(rowData, 0, rowData.length)));
                                 }
                             } catch (ArrayIndexOutOfBoundsException e) {
                                 continue;
                             }
+
                         }
                     } else {
                         String[] selectedColumns = columnsPart.split("¬");
@@ -288,7 +291,10 @@ public class DatabaseSystem {
         } else if (command.toUpperCase().startsWith("INSERT INTO")) {
             insertData(command);
         } else if (command.toUpperCase().startsWith("SELECT")) {
-            selectData(command);
+            String respevquer="";
+            respevquer=selectData(command);
+            //System.out.println("Resultado de Return "+respevquer);
+            return  respevquer;
         } else if (command.toUpperCase().startsWith("UPDATE")) {
             updateData(command);
         } else if (command.toUpperCase().startsWith("DELETE")) {
@@ -728,5 +734,9 @@ public class DatabaseSystem {
             System.out.println("Error: Operador de comparación no válido en la condición WHERE.");
             return false;
         }
+    }
+    public boolean verificarUsuario(String query){
+
+        return false;
     }
 }

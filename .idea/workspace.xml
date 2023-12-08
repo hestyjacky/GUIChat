@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/DatabaseSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/DatabaseSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +170,10 @@
       <workItem from="1701790425158" duration="4698000" />
       <workItem from="1701877691528" duration="15873000" />
       <workItem from="1701906676970" duration="7272000" />
-      <workItem from="1701921756464" duration="2420000" />
+      <workItem from="1701921756464" duration="2597000" />
+      <workItem from="1701970412682" duration="3439000" />
+      <workItem from="1701973956345" duration="861000" />
+      <workItem from="1702070396129" duration="3371000" />
     </task>
     <servers />
   </component>
@@ -189,33 +195,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>232</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>231</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>18</line>
+          <line>19</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="29" />
+          <line>93</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
+          <line>219</line>
+          <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Client.java</url>
@@ -228,30 +219,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>218</line>
-          <properties class="com.example.gui.DatabaseSystem" method="evaluateWhereConditionSelect">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
           <line>17</line>
-          <properties class="com.example.gui.DatabaseSystem" method="&lt;init&gt;">
+          <properties class="com.example.gui.DatabaseSystem" method="DatabaseSystemStr">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
-          <line>39</line>
-          <properties class="com.example.gui.DatabaseSystem" method="main">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

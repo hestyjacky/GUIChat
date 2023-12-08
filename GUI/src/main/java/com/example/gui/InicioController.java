@@ -1,6 +1,5 @@
 package com.example.gui;
 
-import com.example.gui.encabezado;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +11,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.net.Socket;
 
 public class InicioController extends encabezado {
     @FXML
@@ -23,44 +21,47 @@ public class InicioController extends encabezado {
     private TextField ContrasenaUser;
     @FXML
     public Text textUser;
+    //public String user;
     @FXML
     protected void SignUp_ButtonClick(){
         Mensaje_Botones.setText("Abriendo página de registro...");
+        abrirRegistro("Inicio.fxml");
     }
     @FXML
     protected void LogIn_ButtonClick(ActionEvent e) throws IOException {
         String correo = CorreoUser.getText();
-        String contrasena = ContrasenaUser.getText();
+        //String correo = "jacky@gmai";
 
-        if (correo.isBlank() || contrasena.isBlank()){
-            String user = "Ocupa llenar ambos campos...";
-            Mensaje_Botones.setText(user);
+        String contrasena = ContrasenaUser.getText();
+        //String contrasena = "123";
+
+        if (correo.isBlank() || contrasena.isBlank()) {
+            Mensaje_Botones.setText("Ocupa llenar ambos campos...");
+            System.out.println("hola1");
+
         }else{
             //Socket socket = new Socket("localhost", 1408); // ip ---------
             String query = "select * from usuarios where contraseña = "+contrasena+" and correo = "+correo+";\n";
-            DatabaseSystem BD = new DatabaseSystem(query);
+            DatabaseSystem BD = new DatabaseSystem();
 
-            /*/ ????
-            String[] partes = BD.toString().split("\t");
-            System.out.println(partes);
-             */
+            Mensaje_Botones.setText("   Los datos son incorrectos...");
 
+            if (BD.DatabaseSystemStr(query).contains(contrasena) || BD.DatabaseSystemStr(query).contains(correo)){
+                System.out.println("coinciden con los datos");
+                //System.out.println("Return recibido:"+BD.DatabaseSystemStr(query));
 
+                Mensaje_Botones.setText(" Log-in exitoso !");
 
-            String user = " Log-in exitoso !";
-            Mensaje_Botones.setText(user);
+                Node source = (Node) e.getSource();
+                Stage stage = (Stage) source.getScene().getWindow();
+                stage.close();
 
-            Node source = (Node) e.getSource();
-            Stage stage = (Stage) source.getScene().getWindow();
-            stage.close();
-
-            //abrirNuevaInterfaz("MenuInicial.fxml");
+                abrirMenuInicial("MenuInicial.fxml");
+            }
         }
     }
 
-
-
-    private void abrirNuevaInterfaz(String rutaFXML) {
+    private void abrirMenuInicial(String rutaFXML) {
         try {
             // Cargar el nuevo FXML
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
@@ -84,6 +85,37 @@ public class InicioController extends encabezado {
 
             scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
 
+
+            // Mostrar la nueva ventana
+            nuevaVentana.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void abrirRegistro(String rutaFXML) {
+        try {
+            // Cargar el nuevo FXML
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
+            Parent root = fxmlLoader.load();
+
+            // Crear una nueva ventana para la nueva interfaz
+            Stage nuevaVentana = new Stage();
+            nuevaVentana.setTitle("Registro de usuario");
+
+            // Configurar la escena con el nuevo contenido
+            Scene scene = new Scene(root);
+            nuevaVentana.setScene(scene);
+            nuevaVentana.setWidth(800);
+            nuevaVentana.setHeight(700);
+
+            nuevaVentana.setMinWidth(800);
+            nuevaVentana.setMinHeight(700);
+
+            encabezado encabezado = new encabezado();
+            encabezado.moverVentana(nuevaVentana,scene);
+
+            //scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
 
             // Mostrar la nueva ventana
             nuevaVentana.show();
