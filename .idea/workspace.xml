@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/ChatPrincipal.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Registro.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/DatabaseSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/DatabaseSystem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/USERS/chats.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/chats.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/USERS/usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/usuarios.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,38 +42,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;mi__primera__chamba&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/FDZja/IdeaProjects/tmp/GUIChat/USERS&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "mi__primera__chamba",
+    "last_opened_file_path": "C:/Users/FDZja/IdeaProjects/tmp/GUIChat/GUI/src/main/resources/com/example/gui",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.gui" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\FDZja\IdeaProjects\tmp\GUIChat\USERS" />
+      <recent name="C:\Users\FDZja\IdeaProjects\tmp\GUIChat\GUI\src\main\resources\com\example\gui" />
       <recent name="C:\Users\FDZja\IdeaProjects\tmp\GUIChat\GUI\src\main\java\com\example\gui" />
+      <recent name="C:\Users\FDZja\IdeaProjects\tmp\GUIChat\USERS" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.InicioApp">
+  <component name="RunManager" selected="Application.RegistroApp">
     <configuration name="ClientApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.gui.ClientApp" />
       <module name="GUI" />
@@ -120,8 +127,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.gui.Server" />
+    <configuration name="RegistroApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.gui.RegistroApp" />
       <module name="GUI" />
       <extension name="coverage">
         <pattern>
@@ -134,19 +141,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.RegistroApp" />
       <item itemvalue="Application.MenuInicialApp" />
       <item itemvalue="Application.DatabaseSystem" />
       <item itemvalue="Application.InicioApp" />
       <item itemvalue="Application.ClientApp" />
-      <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.InicioApp" />
+        <item itemvalue="Application.RegistroApp" />
         <item itemvalue="Application.DatabaseSystem" />
+        <item itemvalue="Application.InicioApp" />
         <item itemvalue="Application.MenuInicialApp" />
         <item itemvalue="Application.ClientApp" />
-        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -173,7 +180,7 @@
       <workItem from="1701921756464" duration="2597000" />
       <workItem from="1701970412682" duration="3439000" />
       <workItem from="1701973956345" duration="861000" />
-      <workItem from="1702070396129" duration="3371000" />
+      <workItem from="1702070396129" duration="12861000" />
     </task>
     <servers />
   </component>
@@ -207,6 +214,16 @@
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java</url>
           <line>219</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroController.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroController.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Client.java</url>

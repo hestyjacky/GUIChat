@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<VBox alignment="CENTER"
+      styleClass="miVBox"
+      xmlns="http://javafx.com/javafx/17.0.2-ea"
+      style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: transparent;"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.ChatPrincipalController">
+
+    <VBox fx:id="Ventana"
+          styleClass="Ventana">
+        <padding>
+            <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
+        </padding>
+
+        <VBox>
+            <HBox alignment="TOP_RIGHT"  spacing="3">
+                <Button fx:id="BontonMinimizar"
+                        maxHeight="30" maxWidth="30"
+                        minHeight="30" minWidth="30"
+                        onAction="#handleSalir"
+                        style="-fx-background-color: #F89494;">
+                    <graphic>
+                        <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="mini" />
+                    </graphic>
+                </Button>
+
+                <Button fx:id="BontonSalir"
+                        maxHeight="30" maxWidth="30"
+                        minHeight="30" minWidth="30"
+                        onAction="#handleSalir"
+                        style="-fx-background-color: #F89494;">
+                    <graphic>
+                        <Text style="-fx-font-weight: bold; -fx-font-size: 14px;" text="X" />
+                    </graphic>
+                </Button>
+            </HBox>
+        </VBox>
+
+
+
+
+        <HBox>
+            <children>
+                <!-- Agrega el ImageView con la ruta de la imagen y las dimensiones específicas -->
+                <ImageView fitHeight="597" fitWidth="730" preserveRatio="true">
+                    <image>
+                        <Image url="/babble.jpg" />
+                    </image>
+                    <HBox.margin>
+                        <Insets left="40.0" />
+                    </HBox.margin>
+                </ImageView>
+            </children>
+
+
+        <VBox>
+                <GridPane alignment="center" hgap="15" vgap="5">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                    <VBox.margin>
+                        <Insets left="60.0" />
+                    </VBox.margin>
+                </GridPane>
+
+
+                <Label fx:id="welcomeText" prefHeight="18.0" prefWidth="202.0" style="-fx-font-size: 12px; -fx-font-weight: bold;">
+                    <VBox.margin>
+                        <Insets left="80.0" />
+                    </VBox.margin></Label>
+                <HBox alignment="BOTTOM_CENTER" spacing="20.0">
+                    <padding>
+                        <Insets left="50.0" top="20.0" />
+                    </padding>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
+                </padding>
+            </VBox>
+
+        </HBox>
+    </VBox>
+
+</VBox>

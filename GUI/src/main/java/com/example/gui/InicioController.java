@@ -44,8 +44,6 @@ public class InicioController extends encabezado {
             String query = "select * from usuarios where contraseña = "+contrasena+" and correo = "+correo+";\n";
             DatabaseSystem BD = new DatabaseSystem();
 
-            Mensaje_Botones.setText("   Los datos son incorrectos...");
-
             if (BD.DatabaseSystemStr(query).contains(contrasena) || BD.DatabaseSystemStr(query).contains(correo)){
                 System.out.println("coinciden con los datos");
                 //System.out.println("Return recibido:"+BD.DatabaseSystemStr(query));
@@ -58,6 +56,9 @@ public class InicioController extends encabezado {
 
                 abrirMenuInicial("MenuInicial.fxml");
             }
+
+            Mensaje_Botones.setText("   Los datos son incorrectos...");
+
         }
     }
 

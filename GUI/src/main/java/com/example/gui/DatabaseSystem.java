@@ -40,7 +40,7 @@ public class DatabaseSystem {
     }
     public static String currentDatabase = "USERS";
     public static void main(String[] args) throws IOException {
-        String query = "select * from usuarios where id = angela and correo = angela@gmail;";// and contraseña = 123;";
+        String query = "insert into usuarios (id, correo, contraseña) values (pedro, pqt1@gmail.com, 345);";// and contraseña = 123;";
         DatabaseSystem BD = new DatabaseSystem();
         BD.DatabaseSystemStr(query);
     }
@@ -427,7 +427,7 @@ public class DatabaseSystem {
                     // Si el archivo está vacío o no existe, escribir el encabezado
                     StringBuilder headerRow = new StringBuilder();
                     for (String columnName : columnNames) {
-                        headerRow.append(columnName.trim()).append(",");
+                        headerRow.append(columnName.trim()).append("¬");
                     }
                     //----------------------------------------------------------------------------
                     bufferedWriter.write(headerRow.toString());
@@ -441,7 +441,7 @@ public class DatabaseSystem {
 
                 StringBuilder dataRow = new StringBuilder();
                 for (String value : values) {
-                    dataRow.append(value.trim()).append(",");
+                    dataRow.append(value.trim()).append("¬");
                 }
                 bufferedWriter.write(dataRow.toString());
                 bufferedWriter.newLine();
