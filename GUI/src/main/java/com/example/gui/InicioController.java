@@ -39,11 +39,10 @@ public class InicioController extends encabezado {
         }
     }
     @FXML
-    protected void LogIn_ButtonClick(ActionEvent event) throws IOException {
-        try {
-            ServerSocket serverSocket = new ServerSocket(1408);
-            Socket socket = new Socket("localhost", 1408); // ip ---------
-            socket.isConnected();
+    protected void LogIn_ButtonClick(ActionEvent event) {
+        try (Socket socket = new Socket("localhost", 1408); // ip ---------
+             ServerSocket serverSocket = new ServerSocket(1409)){
+
             System.out.println("Establecio conexion");
 
             String correo = CorreoUser.getText();
