@@ -15,8 +15,17 @@ public class MenuInicialApp extends Application {
 
         scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
 
-        stage.setTitle("Menú");
         stage.setScene(scene);
+        stage.setWidth(800);
+        stage.setHeight(700);
+
+        stage.setMinWidth(800);
+        stage.setMinHeight(700);
+
+        encabezado encabezado = new encabezado();
+        encabezado.moverVentana(stage,scene);
+
+        stage.setTitle("Menú");
         stage.onCloseRequestProperty().setValue(event -> System.out.println("\nEnd - Chats!"));
         stage.show();
     }

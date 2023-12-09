@@ -40,7 +40,7 @@ public class DatabaseSystem {
     }
     public static String currentDatabase = "USERS";
     public static void main(String[] args) throws IOException {
-        String query = "insert into usuarios (id, correo, contraseña) values (pedro, pqt1@gmail.com, 345);";// and contraseña = 123;";
+        String query = "insert into usuarios (id, correo, contraseña) values (sofia, a1@gmail.com, 9987);";// and contraseña = 123;";
         DatabaseSystem BD = new DatabaseSystem();
         BD.DatabaseSystemStr(query);
     }
@@ -191,6 +191,7 @@ public class DatabaseSystem {
                                     // Obtener el índice directamente del array columnNames
                                     int columnIndex = Arrays.asList(columnNames).indexOf(columnName.trim());
                                     if (columnIndex >= 0) {
+                                        //
                                         System.out.print(rowData[columnIndex] + "\t");
                                         respuesta+= rowData[columnIndex] + "\t";
                                     } else {
@@ -434,6 +435,7 @@ public class DatabaseSystem {
                     bufferedWriter.newLine();
                 }
 
+
                 // Nueva sección para la escritura de datos
                 if (tableFile.length() > 0) {
                     bufferedWriter.newLine(); // Salto de línea solo si ya hay datos en el archivo
@@ -444,7 +446,7 @@ public class DatabaseSystem {
                     dataRow.append(value.trim()).append("¬");
                 }
                 bufferedWriter.write(dataRow.toString());
-                bufferedWriter.newLine();
+                //bufferedWriter.newLine();
 
                 bufferedWriter.close();
 

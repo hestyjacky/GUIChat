@@ -23,12 +23,21 @@ public class InicioController extends encabezado {
     public Text textUser;
     //public String user;
     @FXML
-    protected void SignUp_ButtonClick(){
+    protected void SignUp_ButtonClick(ActionEvent event){
         Mensaje_Botones.setText("Abriendo página de registro...");
-        abrirRegistro("Inicio.fxml");
+        try {
+            RegistroApp Registro = new RegistroApp();
+            Stage regScene = new Stage();
+            Registro.start(regScene);
+            Node source3 = (Node) event.getSource();
+            Stage stage3 = (Stage) source3.getScene().getWindow();
+            stage3.close();
+        } catch (Exception e) {
+            e.getMessage();
+        }
     }
     @FXML
-    protected void LogIn_ButtonClick(ActionEvent e) throws IOException {
+    protected void LogIn_ButtonClick(ActionEvent event) throws IOException {
         String correo = CorreoUser.getText();
         //String correo = "jacky@gmai";
 
@@ -50,78 +59,24 @@ public class InicioController extends encabezado {
 
                 Mensaje_Botones.setText(" Log-in exitoso !");
 
-                Node source = (Node) e.getSource();
+                Node source = (Node) event.getSource();
                 Stage stage = (Stage) source.getScene().getWindow();
                 stage.close();
 
-                abrirMenuInicial("MenuInicial.fxml");
+                try {
+                    MenuInicialApp Menu = new MenuInicialApp();
+                    Stage regScene = new Stage();
+                    Menu.start(regScene);
+                    Node source1 = (Node) event.getSource();
+                    Stage stage2 = (Stage) source1.getScene().getWindow();
+                    stage2.close();
+                } catch (Exception e) {
+                    e.getMessage();
+                }
             }
 
             Mensaje_Botones.setText("   Los datos son incorrectos...");
 
-        }
-    }
-
-    private void abrirMenuInicial(String rutaFXML) {
-        try {
-            // Cargar el nuevo FXML
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
-            Parent root = fxmlLoader.load();
-
-            // Crear una nueva ventana para la nueva interfaz
-            Stage nuevaVentana = new Stage();
-            nuevaVentana.setTitle("Menú");
-
-            // Configurar la escena con el nuevo contenido
-            Scene scene = new Scene(root);
-            nuevaVentana.setScene(scene);
-            nuevaVentana.setWidth(800);
-            nuevaVentana.setHeight(700);
-
-            nuevaVentana.setMinWidth(800);
-            nuevaVentana.setMinHeight(700);
-
-            encabezado encabezado = new encabezado();
-            encabezado.moverVentana(nuevaVentana,scene);
-
-            scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
-
-
-            // Mostrar la nueva ventana
-            nuevaVentana.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void abrirRegistro(String rutaFXML) {
-        try {
-            // Cargar el nuevo FXML
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(rutaFXML));
-            Parent root = fxmlLoader.load();
-
-            // Crear una nueva ventana para la nueva interfaz
-            Stage nuevaVentana = new Stage();
-            nuevaVentana.setTitle("Registro de usuario");
-
-            // Configurar la escena con el nuevo contenido
-            Scene scene = new Scene(root);
-            nuevaVentana.setScene(scene);
-            nuevaVentana.setWidth(800);
-            nuevaVentana.setHeight(700);
-
-            nuevaVentana.setMinWidth(800);
-            nuevaVentana.setMinHeight(700);
-
-            encabezado encabezado = new encabezado();
-            encabezado.moverVentana(nuevaVentana,scene);
-
-            //scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
-
-            // Mostrar la nueva ventana
-            nuevaVentana.show();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }

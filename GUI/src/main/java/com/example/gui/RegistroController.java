@@ -113,9 +113,4 @@ public class RegistroController {
         // Verificar si el correo coincide con el patrón
         return matcher.matches();
     }
-
-    @FXML
-    protected void SignUp_ButtonClick(){
-        Mensaje_Botones.setText("Abriendo página de registro...");
-    }
 }
