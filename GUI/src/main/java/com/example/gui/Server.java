@@ -26,7 +26,6 @@ public class Server{
             e.printStackTrace();
         }
     }
-
     public void closeServerSocket() {
         try {
             if (serverSocket != null) {
@@ -36,83 +35,17 @@ public class Server{
             e.printStackTrace();
         }
     }
-
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1408);
         Server server = new Server(serverSocket);
         server.startServer();
     }
+    public String receiveQuery(String query){
 
-    public static void armarQueryToDatabase(){
-        //inserts
-        // sender, receiver, mensaje
-
+        return "";
     }
 
-    /*
-    ServerSocket serverSocket;
-    Socket socket;
-    private BufferedReader bf_reader;
-    private BufferedWriter bf_writer;
-
-    public Server(int serverSocketTxt) {
-        try {
-            serverSocket = new ServerSocket(serverSocketTxt);
-            System.out.println(serverSocket);
-            socket = serverSocket.accept();
-            this.bf_reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            this.bf_writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-        } catch (IOException e){
-            System.out.println("Error creating server");
-            e.printStackTrace();
-        }
+    public String sendQuery(String query){
+        return "";
     }
-
-    public void sendMessagesToClient(String messageToClient){
-        try{
-            bf_writer.write(messageToClient);
-            bf_writer.newLine();
-            bf_writer.flush();
-        }catch (IOException e){
-            e.printStackTrace();
-            System.out.println("Error sending message to the client");
-            closeEverything(socket, bf_reader,bf_writer);
-        }
-    }
-
-    public void receiveMessageFromClient(VBox vBox){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (socket.isConnected()){
-                    try{
-                        String messageFromClient = bf_reader.readLine();
-                        ServidorController.addLabel(messageFromClient, vBox);
-                    }catch (IOException e){
-                        e.printStackTrace();
-                        System.out.println("Error reciving message from the client");
-                        closeEverything(socket, bf_reader, bf_writer);
-                        break;
-                    }
-                }
-            }
-        }).start();
-    }
-
-    public void closeEverything(Socket socket, BufferedReader bf_reader, BufferedWriter bf_writer){
-        try {
-            if (bf_reader != null){
-                bf_reader.close();
-            }
-            if (bf_writer != null){
-                bf_writer.close();
-            }
-            if (socket != null){
-                socket.close();
-            }
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-     */
 }

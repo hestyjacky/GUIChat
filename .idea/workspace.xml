@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/USERS/usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/usuarios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +66,7 @@
       <recent name="com.example.gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.InicioApp">
+  <component name="RunManager">
     <configuration name="ClientApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.gui.ClientApp" />
       <module name="GUI" />
@@ -122,8 +119,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RegistroApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.gui.RegistroApp" />
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.gui.Server" />
       <module name="GUI" />
       <extension name="coverage">
         <pattern>
@@ -136,7 +133,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.RegistroApp" />
+      <item itemvalue="Application.Server" />
       <item itemvalue="Application.MenuInicialApp" />
       <item itemvalue="Application.DatabaseSystem" />
       <item itemvalue="Application.InicioApp" />
@@ -144,11 +141,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.InicioApp" />
         <item itemvalue="Application.MenuInicialApp" />
         <item itemvalue="Application.DatabaseSystem" />
         <item itemvalue="Application.ClientApp" />
-        <item itemvalue="Application.RegistroApp" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +173,7 @@
       <workItem from="1701970412682" duration="3439000" />
       <workItem from="1701973956345" duration="861000" />
       <workItem from="1702070396129" duration="12952000" />
-      <workItem from="1702088015100" duration="2872000" />
+      <workItem from="1702088015100" duration="5413000" />
     </task>
     <servers />
   </component>
