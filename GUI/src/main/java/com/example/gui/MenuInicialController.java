@@ -29,6 +29,7 @@ public class MenuInicialController
     private VBox ContactLayout;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*
         List<Contact> contacts = new ArrayList<>(contacts());
         for (int i =0; i<contacts.size(); i++){
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -43,7 +44,10 @@ public class MenuInicialController
                 throw new RuntimeException(e);
             }
         }
+        
+         */
     }
+    /*
     private List<Contact> contacts(){
         List<Contact> ls = new ArrayList<>();
         Contact contact = new Contact();
@@ -54,4 +58,6 @@ public class MenuInicialController
 
         return ls;
     }
+
+     */
 }
