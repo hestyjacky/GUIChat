@@ -1,11 +1,17 @@
 package com.example.gui;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MenuInicialApp extends Application {
     @Override
@@ -23,7 +29,34 @@ public class MenuInicialApp extends Application {
         stage.setTitle("Menú");
         stage.onCloseRequestProperty().setValue(event -> System.out.println("\nEnd - Chats!"));
         stage.show();
+
     }
+
+    @FXML
+    private VBox ContactLayout;
+    private ListView listView = new ListView<>();
+    private void populateData(){
+        ArrayList<String> nebulae = new ArrayList<>();
+        nebulae.add("Hola1");
+        nebulae.add("Hola2");
+        nebulae.add("Hola3");
+        nebulae.add("Hola4");
+        nebulae.add("Hola5");
+        nebulae.add("Hola6");
+
+        for (String nebular : nebulae){
+            listView.getItems().add(nebular);
+        }
+    }
+
+    private void handleItemClicks(){
+        listView.setOnMouseClicked(event -> {
+            String selectedItem = listView.getSelectionModel().getSelectedItem().toString();
+            Dialog d= new Alert(Alert.AlertType.INFORMATION,selectedItem);
+            d.show();
+        });
+    }
+
 
     public static void main(String[] args) {
         launch();

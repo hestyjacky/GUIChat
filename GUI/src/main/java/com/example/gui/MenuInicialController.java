@@ -1,34 +1,53 @@
 package com.example.gui;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-
+import javafx.scene.control.ListView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 public class MenuInicialController
         extends encabezado
         implements Initializable{
 
     @FXML
-    private VBox ContactLayout;
+    private ListView<String> ListView;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try (Socket socket = new Socket("localhost", 1408); // ip ---------
+             ServerSocket serverSocket = new ServerSocket(1409)){
+            System.out.println("Existe conexion para Menu");
+
+            String query = "select id from usuarios;";
+            Server SV = new Server(serverSocket);
+
+            String contenido = SV.SendResultsQuery(query);
+            String[] contenidoSplit = contenido.split("\n");
+
+            for (int i = 0; i<contenidoSplit.length; i++){
+                System.out.println(contenidoSplit[i]);
+            }
+
+            ObservableList<String> items = FXCollections.observableArrayList(
+                    contenidoSplit
+            );
+            ListView.setItems(items);
+
+        }catch (IOException e){
+            System.out.println("Error con conexion en menu");
+        }
+
+
+
         /*
         List<Contact> contacts = new ArrayList<>(contacts());
         for (int i =0; i<contacts.size(); i++){
@@ -44,11 +63,10 @@ public class MenuInicialController
                 throw new RuntimeException(e);
             }
         }
-        
          */
     }
-    /*
-    private List<Contact> contacts(){
+/*
+ private List<Contact> contacts(){
         List<Contact> ls = new ArrayList<>();
         Contact contact = new Contact();
 
@@ -56,8 +74,15 @@ public class MenuInicialController
         contact.setCorreo("usr345@qwer.com");
         ls.add(contact);
 
+        contact.setUsername("Usr 2");
+        contact.setCorreo("5@qwer.com");
+        ls.add(contact);
+
+        contact.setUsername("Usr 3");
+        contact.setCorreo("345@qwer.com");
+        ls.add(contact);
+
         return ls;
     }
-
-     */
+ */
 }

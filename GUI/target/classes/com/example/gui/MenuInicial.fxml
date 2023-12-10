@@ -37,7 +37,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="628.0" prefWidth="323.0" style="-fx-background-radius: 50,50,50,50;" styleClass="profile-layout" stylesheets="@estilos_MenuInicial.css">
                <children>
-                  <ImageView fitHeight="286.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="207.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/logo Babble Hub.png" />
                      </image>
@@ -47,12 +47,12 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="Corbel Bold" size="31.0" />
+                        <Font name="Corbel Bold" size="25.0" />
                      </font>
                   </Label>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="44.0" prefWidth="262.0" text="EMAIL" textFill="WHITE">
                      <font>
-                        <Font name="Corbel Bold" size="26.0" />
+                        <Font name="Corbel Bold" size="22.0" />
                      </font>
                   </Label>
                </children>
@@ -73,7 +73,7 @@
                <children>
                    <HBox prefHeight="44.0" prefWidth="930.0">
                      <children>
-                        <Label prefHeight="52.0" prefWidth="715.0" text="Más recientes">
+                        <Label prefHeight="52.0" prefWidth="715.0" text="Chats Frecuentes">
                            <font>
                               <Font name="Corbel Bold" size="26.0" />
                            </font>
@@ -177,43 +177,25 @@
                        <HBox.margin>
                            <Insets left="20.0" right="20.0" />
                        </HBox.margin>
+                       <HBox.margin>
+                           <Insets bottom="30.0" right="20.0" top="30.0" />
+                       </HBox.margin>
                    </HBox>
+                   <VBox fx:id="ContactLayout" minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="914.0">
+                       <children>
+                           <HBox>
+                               <VBox prefWidth="600">
+                                   <ListView fx:id="ListView" prefHeight="332.0" prefWidth="717.0" style="-fx-font-size: 14px; -fx-background-color: #F89494;" />
+                                   <Separator />
+                               </VBox>
+                           </HBox>
+                       </children>
+                   </VBox>
                </children>
                <opaqueInsets>
                   <Insets top="30.0" />
                </opaqueInsets>
-               <HBox.margin>
-                  <Insets bottom="30.0" right="20.0" top="30.0" />
-               </HBox.margin>
-                <ScrollPane prefHeight="278.0" prefWidth="827.0" styleClass="transparent" stylesheets="@estilos_MenuInicial.css">
-                    <content>
-                        <VBox fx:id="ContactLayout" minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="914.0">
-                            <children>
-                                <HBox>
-                                    <Label contentDisplay="CENTER" layoutX="59.0" layoutY="21.0" prefHeight="40.0" prefWidth="394.0" text="Usuario 1">
-                                        <font>
-                                            <Font name="Corbel Bold" size="22.0" />
-                                        </font>
-                                         <HBox.margin>
-                                            <Insets left="50.0" />
-                                         </HBox.margin>
-                                    </Label>
-                                    <Label layoutX="59.0" layoutY="21.0" prefHeight="38.0" prefWidth="402.0" text="Correo 1">
-                                        <font>
-                                            <Font name="Corbel Bold" size="22.0" />
-                                        </font>
-                                         <padding>
-                                            <Insets left="50.0" />
-                                         </padding>
-                                    </Label>
-                                </HBox>
-                            </children>
-                        </VBox>
-                    </content>
-                  <opaqueInsets>
-                     <Insets />
-                  </opaqueInsets>
-                </ScrollPane>
+
             </VBox>
 
          </children>

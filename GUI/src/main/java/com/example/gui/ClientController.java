@@ -52,9 +52,9 @@ public class ClientController implements Initializable {
                 Socket socket = new Socket("localhost", 1408); // ip ---------
                 client = new Client(socket, username);
                 System.out.println("connected");
-                System.out.println(socket);
+                //System.out.println(socket);
             }catch (IOException e){
-                System.err.println("error en initialize en clientController");
+                System.err.println("error en initialize clientController");
             }
         }
 

@@ -40,9 +40,9 @@ public class DatabaseSystem {
     }
     public static String currentDatabase = "USERS";
     public static void main(String[] args) throws IOException {
-        String query = "insert into usuarios (id, correo, contraseña) values (sofia, a1@gmail.com, 9987);";// and contraseña = 123;";
+        String query = "select correo from usuarios;";
         DatabaseSystem BD = new DatabaseSystem();
-        BD.DatabaseSystemStr(query);
+        System.out.println(BD.DatabaseSystemStr(query));
     }
     public String selectData(String query) {
         String respuesta="";
@@ -157,9 +157,13 @@ public class DatabaseSystem {
 
                     String headerLine = bufferedReader.readLine();
                     columnNames = headerLine.split("¬");
-                    System.out.println(columnNames);
-                    respuesta+=columnNames;
+                    /*
+                    for (int i=0; i<columnNames.length; i++){
+                        respuesta+=columnNames[i]+" ";
+                    }
+                        respuesta+="\n";
 
+                     */
                     // Verificar si se solicitan todas las columnas con *
                     if (columnsPart.equals("*")) {
 
@@ -169,39 +173,36 @@ public class DatabaseSystem {
                                 this.rowData = line.split("¬");
                                 for (String data : this.rowData) {
                                     //System.out.print(data + "\t");
-                                    respuesta+=data + "\t";
+                                    //respuesta+=data + "\t";
                                 }
-                                respuesta+="\n";
-                                return respuesta;
+                                //respuesta+="\n";
+                                //return respuesta;
                             } catch (ArrayIndexOutOfBoundsException var19) {
                             }
                         }
                     } else {
                         String[] selectedColumns = columnsPart.split("¬");
                         for (String column : selectedColumns) {
-                            //System.out.print(column + "\t");
+                            //respuesta+=column + "\t"; // id
                         }
+                        //respuesta+="\n";
 
                         String line;
                         while ((line = bufferedReader.readLine()) != null) {
                             try {
-                                rowData = line.split("¬");
-                                // Mostrar los datos de todas las filas para las columnas específicas
-                                for (String columnName : selectedColumns) {
-                                    // Obtener el índice directamente del array columnNames
-                                    int columnIndex = Arrays.asList(columnNames).indexOf(columnName.trim());
+                                String[] rowData = line.split("¬");
+                                for (String selectedColumn : selectedColumns) {
+                                    String columnName = selectedColumn.trim();
+                                    int columnIndex = getColumnIndex(columnNames, columnName);
                                     if (columnIndex >= 0) {
-                                        //
-                                        System.out.print(rowData[columnIndex] + "\t");
-                                        respuesta+= rowData[columnIndex] + "\t";
+                                        respuesta+=rowData[columnIndex] + "\t";
                                     } else {
-                                        respuesta+= "\t";
+                                        respuesta+="\t";
                                     }
                                 }
                                 respuesta+="\n";
-                                return respuesta;
                             } catch (ArrayIndexOutOfBoundsException e) {
-                                continue;
+                                // Manejar la excepción si es necesario
                             }
                         }
                     }

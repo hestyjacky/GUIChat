@@ -45,6 +45,10 @@ public class InicioController extends encabezado {
              ServerSocket serverSocket = new ServerSocket(1409)){
             System.out.println("Existe conexion para validar los datos");
 
+            Server Server1 = new Server(serverSocket);
+            String query1 = "select id from usuarios;";
+            System.out.println(Server1.SendResultsQuery(query1));;
+
             String correo = CorreoUser.getText();
             String contrasena = ContrasenaUser.getText();
 
