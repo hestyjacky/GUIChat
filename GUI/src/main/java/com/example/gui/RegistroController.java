@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,42 +64,55 @@ public class RegistroController {
 
     @FXML
     protected void Register_ButtonClick(ActionEvent event) {
-        String userRegistro = RegistroUser.getText();
-        String correo = CorreoUser.getText();
-        String contrasena = ContrasenaUser.getText();
+        try (Socket socket = new Socket("localhost", 1408); // ip ---------
+             ServerSocket serverSocket = new ServerSocket(1409)) {
+            System.out.println("Existe conexion para almacenar los datos");
 
-        if (correo.isBlank() || contrasena.isBlank() || userRegistro.isBlank()) {
-            String user = "Ocupa llenar todos campos...";
-            Mensaje_Botones.setText(user);
-        }else { // todas las casillas estan llenas
-            if (validarCorreo(correo)) { // si contiene la estructura correcta...
-                String query = "select correo from usuarios where correo = "+correo+";";
-                String query2 = "select id from usuarios where id = "+userRegistro+";";
-                DatabaseSystem BD = new DatabaseSystem();
+            String userRegistro = RegistroUser.getText();
+            String correo = CorreoUser.getText();
+            String contrasena = ContrasenaUser.getText();
 
-                if (!BD.DatabaseSystemStr(query).contains(correo) && !BD.DatabaseSystemStr(query2).contains(userRegistro)){
-                    String query3 = "insert into usuarios (id, correo, contraseña) values ("+userRegistro+", "+correo+", "+contrasena+");";
+            if (correo.isBlank() || contrasena.isBlank() || userRegistro.isBlank()) {
+                String user = "Ocupa llenar todos campos...";
+                Mensaje_Botones.setText(user);
+            }else { // todas las casillas estan llenas
+                if (validarCorreo(correo)) { // si contiene la estructura correcta...
+                    String query = "select correo from usuarios where correo = "+correo+";";
+                    String query2 = "select id from usuarios where id = "+userRegistro+";";
 
-                    BD.DatabaseSystemStr(query3);
+                    Server SV = new Server(serverSocket);
 
-                    try {
-                        InicioApp Inicio = new InicioApp();
-                        Stage regScene = new Stage();
-                        Inicio.start(regScene);
-                        Node source = (Node) event.getSource();
-                        Stage stage = (Stage) source.getScene().getWindow();
-                        stage.close();
-                    } catch (Exception e) {
-                        e.getMessage();
+                    /*
+                    DatabaseSystem BD = new DatabaseSystem();
+                    if (!BD.DatabaseSystemStr(query).contains(correo) && !BD.DatabaseSystemStr(query2).contains(userRegistro)){
+                     */
+                    if (!SV.SendResultsQuery(query).contains(correo) && !SV.SendResultsQuery(query2).contains(userRegistro)){
+                        String query3 = "insert into usuarios (id, correo, contraseña) values ("+userRegistro+", "+correo+", "+contrasena+");";
+
+                        SV.SendResultsQuery(query3);
+
+                        try {
+                            InicioApp Inicio = new InicioApp();
+                            Stage regScene = new Stage();
+                            Inicio.start(regScene);
+                            Node source = (Node) event.getSource();
+                            Stage stage = (Stage) source.getScene().getWindow();
+                            stage.close();
+                        } catch (Exception e) {
+                            e.getMessage();
+                        }
+                    }else{
+                        String user = "    Utiliza otros datos...";
+                        Mensaje_Botones.setText(user);
                     }
-                }else{
-                    String user = "    Utiliza otros datos...";
+                } else {
+                    String user = "     Correo no valido...";
                     Mensaje_Botones.setText(user);
                 }
-            } else {
-                String user = "     Correo no valido...";
-                Mensaje_Botones.setText(user);
             }
+
+        }catch (IOException e){
+
         }
     }
 

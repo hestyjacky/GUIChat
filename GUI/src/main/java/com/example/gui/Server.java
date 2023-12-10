@@ -16,7 +16,8 @@ public class Server{
 
             while (!serverSocket.isClosed()) {
                 Socket socket = serverSocket.accept();
-                System.out.println("New client has connected");
+                System.out.println("accion dentro de conexion");
+                //System.out.println("New client has connected");
                 //ClientHandler clientHandler = new ClientHandler(socket);
 
                 //Thread thread = new Thread(clientHandler);
@@ -40,12 +41,8 @@ public class Server{
         Server server = new Server(serverSocket);
         server.startServer();
     }
-    public String receiveQuery(String query){
-
-        return "";
-    }
-
-    public String sendQuery(String query){
-        return "";
+    public String SendResultsQuery(String query){
+        DatabaseSystem BD = new DatabaseSystem();
+        return BD.DatabaseSystemStr(query);
     }
 }
