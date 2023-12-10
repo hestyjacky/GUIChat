@@ -1,0 +1,25 @@
+.profile-layout{
+    -fx-background-color: #EBC95E;
+    -fx-background-radius: 50 50 50 50;
+}
+
+.button{
+    -fx-background-color: #EBC95E;
+    -fx-background-radius: 50;
+}
+
+.white-background{
+    -fx-background-color: #fff;
+}
+
+.transparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+
+.most-contacted-layout{
+    -fx-background-radius: 0 50 50 50;
+}
+
+.light-gray-background{
+    -fx-background-color: #f3f3f3;
+}

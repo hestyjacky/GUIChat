@@ -53,7 +53,7 @@ public class encabezado {
     private double xOffset = 0;
     private double yOffset = 0;
     public void moverVentana(Stage stage, Scene scene){
-        stage.initStyle(StageStyle.UNDECORATED); // Barra de botones por default
+        stage.initStyle(StageStyle.TRANSPARENT); // Barra de botones por default
 
         // Manejar eventos del ratón para permitir que la ventana se mueva
         scene.setOnMousePressed((MouseEvent event) -> {

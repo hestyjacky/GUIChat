@@ -73,6 +73,6 @@ public class ClientHandler implements Runnable{
 
     public void removeClientHandler(){
         clientHandlers.remove(this);
-        broadcastMessage("SERVER: "+client_Username+ " has left the chat...");
+        broadcastMessage("SERVER: "+client_Username.split("\\:")[0]+ " has left the chat...");
     }
 }

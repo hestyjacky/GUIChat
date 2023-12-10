@@ -4,159 +4,54 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MenuInicialController
         extends encabezado
         implements Initializable{
 
-    // ----------------- TOOL BAR superior
-
     @FXML
-    private void handleNuevo(ActionEvent event) {
-        // Lógica para la acción "Nuevo"
-        System.out.println("Nuevo: contacto o grupo ?");
-    }
-
-        @FXML
-    private void handleAjustes(ActionEvent event) {
-        // Lógica para la acción "Ajustes"
-        System.out.println("Ajustes");
-    }
-
-    @FXML
-    private void handleMas(ActionEvent event) {
-        // Lógica para la acción "Más"
-        System.out.println("Más opciones");
-    }
-
-    // ----------------- DIVISION
-
-    @FXML
-    private Button BotonNuevo;
-
-    @FXML
-    private ToolBar Toolbar_Favoritos, Toolbar_Contactos, Toolbar_Grupos, Toolbar_ChatsRecientes;
-
-    @FXML
-    private ListView<String> ListView;
-
+    private VBox ContactLayout;
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<Contact> contacts = new ArrayList<>(contacts());
+        for (int i =0; i<contacts.size(); i++){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("contact_item.fxml"));
 
-        // acomodar toolbars
-        Toolbar_Favoritos.setPrefWidth(210);
-        //Toolbar_ChatsRecientes.setPrefHeight(40);
-        //Toolbar_ChatsRecientes.setPrefWidth(305);
-
-        ObservableList<String> items = FXCollections.observableArrayList(
-          // lista de los chats recientes
-                "Angela M" +
-                        "\n >> adios",
-                "omar P" +
-                        "\n >> claro que no...",
-                "hesty F" +
-                        "\n >> brownies?",
-                "Persona 1" +
-                        "\n >> Gracias !",
-                "Angela M" +
-                        "\n >> adios",
-                "omar P" +
-                        "\n >> claro que no...",
-                "hesty F" +
-                        "\n >> brownies?",
-                "Persona 1" +
-                        "\n >> Gracias !",
-                "Angela M" +
-                        "\n >> adios",
-                "omar P" +
-                        "\n >> claro que no...",
-                "hesty F" +
-                        "\n >> brownies?",
-                "Persona 1" +
-                        "\n >> Gracias !",
-                "Angela M" +
-                        "\n >> adios",
-                "omar P" +
-                        "\n >> claro que no...",
-                "hesty F" +
-                        "\n >> brownies?",
-                "Persona 1" +
-                        "\n >> Gracias !"
-        );
-
-        ListView.setItems(items);
-
-    }
-
-
-    //----------------- PRIMER AREA
-
-    @FXML
-    private void BottonBuscar_Contactos(ActionEvent event) {
-        // Lógica para la acción "Buscar" dentro del apartado de contactos
-        System.out.println("Buscando en contactos...");
-    }
-    @FXML
-    private void Botton_Primer_Contacto(ActionEvent event) {
-        // Lógica para la acción
-        System.out.println("Entrando al chat indv 1...");
-    }
-    @FXML
-    private void Botton_DetallesContacto(ActionEvent event) {
-        // Lógica para la acción
-        System.out.println("Detalles chat...");
-    }
-    @FXML
-    private void Botton_Segundo_Contacto(ActionEvent event) {
-        // Lógica para la acción
-        System.out.println("Entrando al chat indv 2...");
-    }
-    @FXML
-    private void Botton_Tercer_Contacto(ActionEvent event) {
-        // Lógica para la acción
-        System.out.println("Entrando al chat indv 3...");
-    }
-    private ContextMenu contextoActual;
-    @FXML
-    public void handleClicDerecho(ContextMenuEvent event) {
-
-        if (contextoActual != null) {
-            contextoActual.hide();
+            try {
+                HBox hBox = fxmlLoader.load();
+                ContactItemController cic = fxmlLoader.getController();
+                cic.setData(contacts.get(i));
+                ContactLayout.getChildren().add(hBox);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
-
-        contextoActual = new ContextMenu();
-
-        MenuItem opcion1 = new MenuItem("Opción 1");
-        opcion1.setOnAction(e -> handleOpcion1());
-
-        MenuItem opcion2 = new MenuItem("Opción 2");
-        opcion2.setOnAction(e -> handleOpcion2());
-
-        // Agrega las opciones al menú contextual
-        contextoActual.getItems().addAll(opcion1, opcion2);
-
-        // Determina el botón sobre el que se hizo clic derecho
-        Button boton = (Button) event.getSource();
-
-        contextoActual.show(boton, event.getScreenX(), event.getScreenY());
     }
-    private void handleOpcion1() {
-        System.out.println("Se seleccionó Opción 1");
-        contextoActual.hide();
-    }
-    private void handleOpcion2() {
-        System.out.println("Se seleccionó Opción 2");
-        contextoActual.hide();
-    }
+    private List<Contact> contacts(){
+        List<Contact> ls = new ArrayList<>();
+        Contact contact = new Contact();
 
+        contact.setUsername("Usr 1");
+        contact.setCorreo("usr345@qwer.com");
+        ls.add(contact);
 
+        return ls;
+    }
 }

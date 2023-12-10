@@ -11,16 +11,11 @@ public class MenuInicialApp extends Application {
     @Override
     public void start(Stage stage) throws IOException { // main
         FXMLLoader fxmlLoader = new FXMLLoader(InicioApp.class.getResource("MenuInicial.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1310,745);
 
         scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
 
         stage.setScene(scene);
-        stage.setWidth(800);
-        stage.setHeight(700);
-
-        stage.setMinWidth(800);
-        stage.setMinHeight(700);
 
         encabezado encabezado = new encabezado();
         encabezado.moverVentana(stage,scene);

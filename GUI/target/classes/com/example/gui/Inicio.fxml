@@ -6,11 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: transparent;"
-      styleClass="miVBox" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.gui.InicioController">
+<VBox alignment="CENTER" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: transparent;" styleClass="miVBox" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.InicioController">
 
-    <VBox fx:id="Ventana" alignment="TOP_CENTER" styleClass="Ventana">
+    <VBox fx:id="Ventana" alignment="TOP_CENTER" style="-fx-background-radius: 100;" styleClass="Ventana">
         <padding>
             <Insets bottom="30.0" left="20.0" right="20.0" top="10.0" />
         </padding>
