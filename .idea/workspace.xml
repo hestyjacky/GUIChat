@@ -6,13 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/DatabaseSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/MenuInicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/MenuInicial.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/USERS/usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/usuarios.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +180,7 @@
       <workItem from="1702179376058" duration="303000" />
       <workItem from="1702179712018" duration="9370000" />
       <workItem from="1702224492719" duration="804000" />
-      <workItem from="1702235098980" duration="24003000" />
+      <workItem from="1702235098980" duration="25335000" />
     </task>
     <servers />
   </component>
@@ -207,7 +202,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>96</line>
+          <line>86</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -232,12 +227,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
-          <line>35</line>
+          <line>40</line>
           <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

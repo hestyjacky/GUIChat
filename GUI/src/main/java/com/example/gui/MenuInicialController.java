@@ -17,6 +17,11 @@ import javafx.collections.ObservableList;
 public class MenuInicialController
         extends encabezado
         implements Initializable{
+    //TODO: -buscar un contacto y mostrar en una lista desplegable?
+    // - colocar los 3 contactos más usados
+    // - almacenar chats
+    // - hacer el zoombido
+    // - mandar fotos y videos
 
     @FXML
     private ListView<String> ListView;
@@ -36,8 +41,6 @@ public class MenuInicialController
         try (Socket socket = new Socket("localhost", 1408); // ip ---------
              ServerSocket serverSocket = new ServerSocket(1410)) {
             System.out.println("\nExiste conexion para Menu\n");
-
-            System.out.println("Menu de usuario: "+this.UsuarioEnSesion);
 
             String query = "select id from usuarios;";
             Server SV = new Server(serverSocket);

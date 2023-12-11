@@ -84,7 +84,7 @@
                               <Insets />
                            </opaqueInsets>
                         </Label>
-                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="182.0" text="Buscar contacto">
+                        <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="182.0" text="Buscar contacto" fx:id="BuscarContacto">
                            <font>
                               <Font name="Corbel Bold" size="18.0" />
                            </font>
@@ -96,7 +96,9 @@
                   </HBox>
                    <HBox alignment="CENTER" prefHeight="101.0" prefWidth="930.0">
                        <children>
-                           <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="245.0" style="-fx-background-radius: 0 50 50 50; -fx-background-color: #1ABC9C" text="UsuarioA" textAlignment="CENTER" textFill="WHITE">
+                           <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0"
+                                   prefWidth="245.0" style="-fx-background-radius: 0 50 50 50; -fx-background-color: #1ABC9C"
+                                   text="UsuarioA" textAlignment="CENTER" textFill="WHITE" fx:id="Contacto1">
                                <font>
                                    <Font name="Corbel Bold" size="21.0" />
                                </font>
@@ -108,7 +110,9 @@
                            </HBox.margin>
                            </Button>
 
-                           <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="245.0" style="-fx-background-radius: 0 50 50 50; -fx-background-color: #5DADE2" text="UsuarioB" textAlignment="CENTER" textFill="WHITE">
+                           <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="245.0"
+                                   style="-fx-background-radius: 0 50 50 50; -fx-background-color: #5DADE2" text="UsuarioB"
+                                   textAlignment="CENTER" textFill="WHITE" fx:id="Contacto2">
                                <font>
                                    <Font name="Corbel Bold" size="21.0" />
                                </font>
@@ -120,7 +124,9 @@
                                </HBox.margin>
                            </Button>
 
-                           <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="245.0" style="-fx-background-radius: 0 50 50 50; -fx-background-color: #EC7063" text="UsuarioC" textAlignment="CENTER" textFill="WHITE">
+                           <Button contentDisplay="CENTER" mnemonicParsing="false" prefHeight="63.0" prefWidth="245.0"
+                                   style="-fx-background-radius: 0 50 50 50; -fx-background-color: #EC7063" text="UsuarioC"
+                                   textAlignment="CENTER" textFill="WHITE" fx:id="Contacto3">
                                <font>
                                    <Font name="Corbel Bold" size="21.0" />
                                </font>
