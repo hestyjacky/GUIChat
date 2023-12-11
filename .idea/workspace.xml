@@ -6,33 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Contact.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ContactItemController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/ChatPrincipal.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Inicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Inicio.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/MenuInicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/MenuInicial.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/Registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/contact_item.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/estilos_MenuInicial.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/estilos_MenuInicial.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ChatPrincipal.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Contact.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ContactItemController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Inicio.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Inicio.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicial.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicial.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Registro.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Registro.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/contact_item.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/estilos_MenuInicial.css" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/estilos_MenuInicial.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/USERS/usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/usuarios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +66,7 @@
       <recent name="com.example.gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.InicioApp">
+  <component name="RunManager" selected="Application.ClientApp">
     <configuration name="ClientApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.gui.ClientApp" />
       <module name="GUI" />
@@ -166,9 +141,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.InicioApp" />
         <item itemvalue="Application.ClientApp" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.InicioApp" />
         <item itemvalue="Application.MenuInicialApp" />
         <item itemvalue="Application.DatabaseSystem" />
       </list>
@@ -208,7 +183,7 @@
       <workItem from="1702235098980" duration="25460000" />
       <workItem from="1702271367082" duration="1984000" />
       <workItem from="1702317186981" duration="6859000" />
-      <workItem from="1702329140663" duration="608000" />
+      <workItem from="1702329140663" duration="4368000" />
     </task>
     <servers />
   </component>
@@ -230,7 +205,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>86</line>
+          <line>93</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -250,7 +225,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>70</line>
+          <line>77</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -260,12 +235,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>73</line>
+          <line>80</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>38</line>
+          <line>40</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

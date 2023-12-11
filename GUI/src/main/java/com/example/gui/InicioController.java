@@ -11,6 +11,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.regex.Matcher;
@@ -42,7 +44,10 @@ public class InicioController extends encabezado {
     @FXML
     protected void LogIn_ButtonClick(ActionEvent event) {
         try (Socket socket = new Socket("localhost", 1408); // ip ---------
-             ServerSocket serverSocket = new ServerSocket(1409)){
+             ServerSocket serverSocket = new ServerSocket(1409);
+            ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream())) {
+
             System.out.println("Existe conexion para validar los datos");
 
             String correo = CorreoUser.getText();
@@ -54,11 +59,20 @@ public class InicioController extends encabezado {
             }else{
                 if (validarCorreo(correo)) {
                     String query = "select * from usuarios where contraseña = " + contrasena + " and correo = " + correo + ";\n";
-                    Server SV = new Server(serverSocket);
+                    //Server SV = new Server(serverSocket);
 
-                    if (SV.SendResultsQuery(query).contains(contrasena) || SV.SendResultsQuery(query).contains(correo)) {
+                    // Enviar la consulta al servidor remoto
+                    outStream.writeObject(query);
+
+                    // Recibir la respuesta del servidor
+                    String result = (String) inStream.readObject();
+
+                    if (result.contains(contrasena) || result.contains(correo)) {
                         String query2 = "select id from usuarios where contraseña = "+contrasena+" and correo = "+correo+";";
-                        String UsuarioEnSesion = SV.SendResultsQuery(query2);
+                        outStream.writeObject(query2);
+                        String UsuarioEnSesion = (String) inStream.readObject();
+
+
                         System.out.println(UsuarioEnSesion);
                         System.out.println("coinciden con los datos, iniciando sesión\n");
 
@@ -67,14 +81,6 @@ public class InicioController extends encabezado {
                         stage.close();
 
                         try {
-                            /*
-                            MenuInicialApp Menu = new MenuInicialApp();
-                            Stage regScene = new Stage();
-                            Menu.start(regScene);
-                            Node source1 = (Node) event.getSource();
-                            Stage stage2 = (Stage) source1.getScene().getWindow();
-                            stage2.close();
-                             */
                             Siguiente_Ventana(event,UsuarioEnSesion,correo);
                         } catch (Exception e) {
                             e.getMessage();
@@ -83,8 +89,10 @@ public class InicioController extends encabezado {
                 }
             }
             Mensaje_Botones.setText("   Los datos son incorrectos...");
-        }catch (IOException e){
+        }catch (IOException | ClassNotFoundException e){
             System.err.println("No establecio conexión");
+            e.printStackTrace();
+
         }
     }
     public static boolean validarCorreo(String correo) {
