@@ -45,10 +45,6 @@ public class InicioController extends encabezado {
              ServerSocket serverSocket = new ServerSocket(1409)){
             System.out.println("Existe conexion para validar los datos");
 
-            Server Server1 = new Server(serverSocket);
-            String query1 = "select id from usuarios;";
-            System.out.println(Server1.SendResultsQuery(query1));;
-
             String correo = CorreoUser.getText();
             String contrasena = ContrasenaUser.getText();
 
@@ -61,19 +57,25 @@ public class InicioController extends encabezado {
                     Server SV = new Server(serverSocket);
 
                     if (SV.SendResultsQuery(query).contains(contrasena) || SV.SendResultsQuery(query).contains(correo)) {
-                        System.out.println("coinciden con los datos, iniciando sesión");
+                        String query2 = "select id from usuarios where contraseña = "+contrasena+" and correo = "+correo+";";
+                        String UsuarioEnSesion = SV.SendResultsQuery(query2);
+                        System.out.println(UsuarioEnSesion);
+                        System.out.println("coinciden con los datos, iniciando sesión\n");
 
                         Node source = (Node) event.getSource();
                         Stage stage = (Stage) source.getScene().getWindow();
                         stage.close();
 
                         try {
+                            /*
                             MenuInicialApp Menu = new MenuInicialApp();
                             Stage regScene = new Stage();
                             Menu.start(regScene);
                             Node source1 = (Node) event.getSource();
                             Stage stage2 = (Stage) source1.getScene().getWindow();
                             stage2.close();
+                             */
+                            Siguiente_Ventana(event,UsuarioEnSesion,correo);
                         } catch (Exception e) {
                             e.getMessage();
                         }
@@ -85,7 +87,6 @@ public class InicioController extends encabezado {
             System.err.println("No establecio conexión");
         }
     }
-
     public static boolean validarCorreo(String correo) {
         // Definir la expresión regular para validar el formato del correo electrónico
         String patronCorreo = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
@@ -98,5 +99,18 @@ public class InicioController extends encabezado {
 
         // Verificar si el correo coincide con el patrón
         return matcher.matches();
+    }
+
+    private void Siguiente_Ventana(ActionEvent event, String UsuarioEnSesion, String correo) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuInicial.fxml"));
+        Parent root = loader.load();
+        MenuInicialController MenuInicialController = loader.getController();
+        MenuInicialController.setDatos(UsuarioEnSesion,correo);
+
+        // Crea una nueva escena y configura el escenario
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

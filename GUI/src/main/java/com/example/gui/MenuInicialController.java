@@ -21,11 +21,23 @@ public class MenuInicialController
     @FXML
     private ListView<String> ListView;
 
+    @FXML
+    private Label Label_user, Label_email;
+    private String UsuarioEnSesion, Correo;
+
+    public void setDatos(String UsuarioEnSesion, String Correo){
+        this.UsuarioEnSesion = UsuarioEnSesion;
+        this.Correo = Correo;
+        actualizarInterfaz();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try (Socket socket = new Socket("localhost", 1408); // ip ---------
-             ServerSocket serverSocket = new ServerSocket(1409)){
-            System.out.println("Existe conexion para Menu");
+             ServerSocket serverSocket = new ServerSocket(1410)) {
+            System.out.println("\nExiste conexion para Menu\n");
+
+            System.out.println("Menu de usuario: "+this.UsuarioEnSesion);
 
             String query = "select id from usuarios;";
             Server SV = new Server(serverSocket);
@@ -33,56 +45,23 @@ public class MenuInicialController
             String contenido = SV.SendResultsQuery(query);
             String[] contenidoSplit = contenido.split("\n");
 
+            /*
             for (int i = 0; i<contenidoSplit.length; i++){
                 System.out.println(contenidoSplit[i]);
             }
+             */
 
             ObservableList<String> items = FXCollections.observableArrayList(
                     contenidoSplit
             );
             ListView.setItems(items);
-
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Error con conexion en menu");
         }
-
-
-
-        /*
-        List<Contact> contacts = new ArrayList<>(contacts());
-        for (int i =0; i<contacts.size(); i++){
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("contact_item.fxml"));
-
-            try {
-                HBox hBox = fxmlLoader.load();
-                ContactItemController cic = fxmlLoader.getController();
-                cic.setData(contacts.get(i));
-                ContactLayout.getChildren().add(hBox);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-         */
     }
-/*
- private List<Contact> contacts(){
-        List<Contact> ls = new ArrayList<>();
-        Contact contact = new Contact();
 
-        contact.setUsername("Usr 1");
-        contact.setCorreo("usr345@qwer.com");
-        ls.add(contact);
-
-        contact.setUsername("Usr 2");
-        contact.setCorreo("5@qwer.com");
-        ls.add(contact);
-
-        contact.setUsername("Usr 3");
-        contact.setCorreo("345@qwer.com");
-        ls.add(contact);
-
-        return ls;
+    private void actualizarInterfaz() {
+        Label_user.setText(UsuarioEnSesion);
+        Label_email.setText(Correo);
     }
- */
 }

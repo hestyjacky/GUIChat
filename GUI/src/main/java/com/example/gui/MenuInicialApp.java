@@ -20,45 +20,17 @@ public class MenuInicialApp extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1310,745);
 
         scene.getStylesheets().add(getClass().getResource("estilos_MenuInicial.css").toExternalForm());
-
         stage.setScene(scene);
-
         encabezado encabezado = new encabezado();
         encabezado.moverVentana(stage,scene);
-
         stage.setTitle("Menú");
         stage.onCloseRequestProperty().setValue(event -> System.out.println("\nEnd - Chats!"));
         stage.show();
-
+        System.out.println(UsuarioEnSesion);
     }
-
-    @FXML
-    private VBox ContactLayout;
-    private ListView listView = new ListView<>();
-    private void populateData(){
-        ArrayList<String> nebulae = new ArrayList<>();
-        nebulae.add("Hola1");
-        nebulae.add("Hola2");
-        nebulae.add("Hola3");
-        nebulae.add("Hola4");
-        nebulae.add("Hola5");
-        nebulae.add("Hola6");
-
-        for (String nebular : nebulae){
-            listView.getItems().add(nebular);
-        }
-    }
-
-    private void handleItemClicks(){
-        listView.setOnMouseClicked(event -> {
-            String selectedItem = listView.getSelectionModel().getSelectedItem().toString();
-            Dialog d= new Alert(Alert.AlertType.INFORMATION,selectedItem);
-            d.show();
-        });
-    }
-
-
     public static void main(String[] args) {
         launch();
+        //System.out.println(this.UsuarioEnSesion);
     }
+    private static String UsuarioEnSesion;
 }

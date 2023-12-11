@@ -40,7 +40,7 @@ public class DatabaseSystem {
     }
     public static String currentDatabase = "USERS";
     public static void main(String[] args) throws IOException {
-        String query = "select correo from usuarios;";
+        String query = "select id from usuarios;";
         DatabaseSystem BD = new DatabaseSystem();
         System.out.println(BD.DatabaseSystemStr(query));
     }
