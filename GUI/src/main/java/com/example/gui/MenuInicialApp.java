@@ -26,11 +26,8 @@ public class MenuInicialApp extends Application {
         stage.setTitle("Menú");
         stage.onCloseRequestProperty().setValue(event -> System.out.println("\nEnd - Chats!"));
         stage.show();
-        System.out.println(UsuarioEnSesion);
     }
     public static void main(String[] args) {
         launch();
-        //System.out.println(this.UsuarioEnSesion);
     }
-    private static String UsuarioEnSesion;
 }

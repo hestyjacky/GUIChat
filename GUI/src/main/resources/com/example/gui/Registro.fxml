@@ -86,7 +86,7 @@
                     <!-- Password -->
 
 
-                    <TextField fx:id="ContrasenaUser" alignment="CENTER" promptText="PASSWORD" style="-fx-font-size: 14px; -fx-font-weight: bold;" styleClass="ContrasenaUser" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <PasswordField fx:id="ContrasenaUser" alignment="CENTER" promptText="PASSWORD" style="-fx-font-size: 14px; -fx-font-weight: bold;" styleClass="ContrasenaUser" GridPane.columnIndex="0" GridPane.rowIndex="3" />
                     <columnConstraints>
                         <ColumnConstraints />
                         <ColumnConstraints />

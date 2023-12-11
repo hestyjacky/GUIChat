@@ -18,14 +18,14 @@ public class MenuInicialController
         extends encabezado
         implements Initializable{
     //TODO: -buscar un contacto y mostrar en una lista desplegable?
-    // - colocar los 3 contactos más usados
     // - almacenar chats
     // - hacer el zoombido
     // - mandar fotos y videos
 
     @FXML
     private ListView<String> ListView;
-
+    @FXML
+    private Button Contacto1, Contacto2, Contacto3;
     @FXML
     private Label Label_user, Label_email;
     private String UsuarioEnSesion, Correo;
@@ -35,7 +35,6 @@ public class MenuInicialController
         this.Correo = Correo;
         actualizarInterfaz();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try (Socket socket = new Socket("localhost", 1408); // ip ---------
@@ -62,9 +61,15 @@ public class MenuInicialController
             System.out.println("Error con conexion en menu");
         }
     }
-
     private void actualizarInterfaz() {
         Label_user.setText(UsuarioEnSesion);
         Label_email.setText(Correo);
+    }
+
+    // TODO - colocar los 3 contactos más usados
+    private void ContactosMasFrecuentes(){
+        String query1 = "Select sender from chats;";
+        String query2 = "Select receiver from chats;";
+
     }
 }

@@ -52,7 +52,6 @@ public class ClientController implements Initializable {
                 Socket socket = new Socket("localhost", 1408); // ip ---------
                 client = new Client(socket, username);
                 System.out.println("connected");
-                //System.out.println(socket);
             }catch (IOException e){
                 System.err.println("error en initialize clientController");
             }
@@ -112,7 +111,5 @@ public class ClientController implements Initializable {
                 vbox.getChildren().add(hBox);
             }
         });
-
     }
 }
-
