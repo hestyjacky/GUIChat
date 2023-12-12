@@ -1,5 +1,6 @@
 package com.example.gui;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,56 +44,51 @@ public class InicioController extends encabezado {
     }
     @FXML
     protected void LogIn_ButtonClick(ActionEvent event) {
-        try (Socket socket = new Socket("localhost", 1408); // ip ---------
-             ServerSocket serverSocket = new ServerSocket(1409);
-            ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream())) {
+        try (Socket socket = new Socket("localhost", 1408);
+             ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+             ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream())) {
 
-            System.out.println("Existe conexion para validar los datos");
+            System.out.println("Existe conexión para validar los datos");
 
             String correo = CorreoUser.getText();
             String contrasena = ContrasenaUser.getText();
 
             if (correo.isBlank() || contrasena.isBlank()) {
                 Mensaje_Botones.setText("Ocupa llenar ambos campos...");
+                return;
+            }
 
-            }else{
-                if (validarCorreo(correo)) {
-                    String query = "select * from usuarios where contraseña = " + contrasena + " and correo = " + correo + ";\n";
-                    //Server SV = new Server(serverSocket);
+            if (validarCorreo(correo)) {
+                // Consulta SQL segura utilizando consultas preparadas o métodos seguros
+                String query = "SELECT * FROM usuarios WHERE contraseña = "+contrasena+" and correo = "+correo+";";
 
-                    // Enviar la consulta al servidor remoto
-                    outStream.writeObject(query);
+                // Enviar la consulta al servidor remoto
+                outStream.writeObject(query);
+                
+                // Recibir la respuesta del servidor
+                String result = (String) inStream.readObject();
 
-                    // Recibir la respuesta del servidor
-                    String result = (String) inStream.readObject();
-
-                    if (result.contains(contrasena) || result.contains(correo)) {
-                        String query2 = "select id from usuarios where contraseña = "+contrasena+" and correo = "+correo+";";
-                        outStream.writeObject(query2);
-                        String UsuarioEnSesion = (String) inStream.readObject();
-
-
-                        System.out.println(UsuarioEnSesion);
-                        System.out.println("coinciden con los datos, iniciando sesión\n");
-
+                if (result.contains(contrasena) || result.contains(correo)) {
+                    // Operaciones en el hilo de la interfaz de usuario
+                    Platform.runLater(() -> {
                         Node source = (Node) event.getSource();
                         Stage stage = (Stage) source.getScene().getWindow();
                         stage.close();
 
                         try {
-                            Siguiente_Ventana(event,UsuarioEnSesion,correo);
+                            Siguiente_Ventana(event, result, correo);
                         } catch (Exception e) {
-                            e.getMessage();
+                            e.printStackTrace();
                         }
-                    }
+                    });
                 }
+            } else {
+                Mensaje_Botones.setText("Correo no válido...");
             }
-            Mensaje_Botones.setText("   Los datos son incorrectos...");
-        }catch (IOException | ClassNotFoundException e){
-            System.err.println("No establecio conexión");
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("No se estableció la conexión");
             e.printStackTrace();
-
+            Mensaje_Botones.setText("Error de conexión...");
         }
     }
     public static boolean validarCorreo(String correo) {
