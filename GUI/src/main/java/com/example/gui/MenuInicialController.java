@@ -83,10 +83,6 @@ public class MenuInicialController extends encabezado implements Initializable {
             stage.setTitle("Detalles");
             stage.setScene(new Scene(loader.load()));
 
-            // Obtener el controlador de la ventana de detalles
-            MenuInicialController.VentanaDetalles ventanaDetallesController = loader.getController();
-            ventanaDetallesController.setDetalle(selectedItem);
-
             ClientController clientController = new ClientController();
             clientController.setUser(UsuarioEnSesion);
 
