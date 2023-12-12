@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/RegistroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/InicioController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/USERS/usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/usuarios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +188,7 @@
       <workItem from="1702235098980" duration="25460000" />
       <workItem from="1702271367082" duration="1984000" />
       <workItem from="1702317186981" duration="6859000" />
-      <workItem from="1702329140663" duration="11010000" />
+      <workItem from="1702329140663" duration="15767000" />
     </task>
     <servers />
   </component>
@@ -196,11 +198,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
-          <line>49</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Client.java</url>
           <line>27</line>
@@ -217,14 +214,34 @@
           <option name="timeStamp" value="64" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialApp.java</url>
           <line>27</line>
           <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Client.java</url>

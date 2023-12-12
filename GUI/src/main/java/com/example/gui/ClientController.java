@@ -37,27 +37,26 @@ public class ClientController implements Initializable {
     @FXML
     private ScrollPane sp_main;
     private Client client;
-    Scanner scanner = new Scanner(System.in);
+    //Scanner scanner = new Scanner(System.in);
+    public String username;
+
+    public void setUser(String username){
+        this.username = username;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("holaaa");
-        System.out.println("Enter your username for the groupchat: ");
-        String username = scanner.nextLine();
-        //String username = "jacks";
 
+        try{
+            Socket socket = new Socket("localhost", 1408); // ip ---------
+            client = new Client(socket, username); // ------ en vez de username pon "heriberto"
+            System.out.println("connected");
+        }catch (IOException e){
+            System.err.println("error en initialize clientController");
 
-        if (!username.isEmpty()){
-            try{
-                Socket socket = new Socket("localhost", 1408); // ip ---------
-                client = new Client(socket, username);
-                System.out.println("connected");
-            }catch (IOException e){
-                System.err.println("error en initialize clientController");
-            }
         }
 
-        nombre.setText("Receiver");
+        nombre.setText(username);
 
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
