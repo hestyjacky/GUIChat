@@ -1,5 +1,6 @@
 package com.example.gui;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -10,7 +11,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.ServerSocket;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -34,39 +36,36 @@ public class RegistroController {
 
     @FXML
     private void Salir_encabezado(ActionEvent event) {
-        // Lógica para la acción "Guardar"
         System.out.println("Salir...");
         System.out.println("Gracias por su preferencia!");
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
     }
+
     @FXML
     private void Minimizar_encabezado() {
-        // Obtener la referencia de la ventana actual
         Stage stage = (Stage) Bonton_Minimizar.getScene().getWindow();
-
-        // Minimizar la ventana
         stage.setIconified(true);
     }
+
     @FXML
     private void MaximizarVentana() {
-        // Obtener la referencia de la ventana actual
         Stage stage = (Stage) Boton_Maximizar.getScene().getWindow();
-
-        // Verificar si la ventana está maximizada y actuar en consecuencia
         if (stage.isMaximized()) {
-            stage.setMaximized(false); // Desmaximizar la ventana
+            stage.setMaximized(false);
         } else {
-            stage.setMaximized(true);  // Maximizar la ventana
+            stage.setMaximized(true);
         }
     }
 
     @FXML
     protected void Register_ButtonClick(ActionEvent event) {
-        try (Socket socket = new Socket("localhost", 1408); // ip ---------
-             ServerSocket serverSocket = new ServerSocket(1409)) {
-            System.out.println("Existe conexion para almacenar los datos");
+        try (Socket socket = new Socket("localhost", 1408);
+             ObjectOutputStream outStream = new ObjectOutputStream(socket.getOutputStream());
+             ObjectInputStream inStream = new ObjectInputStream(socket.getInputStream())) {
+
+            System.out.println("Existe conexión para almacenar los datos");
 
             String userRegistro = RegistroUser.getText();
             String correo = CorreoUser.getText();
@@ -75,58 +74,60 @@ public class RegistroController {
             if (correo.isBlank() || contrasena.isBlank() || userRegistro.isBlank()) {
                 String user = "Ocupa llenar todos campos...";
                 Mensaje_Botones.setText(user);
-            }else { // todas las casillas estan llenas
-                if (validarCorreo(correo)) { // si contiene la estructura correcta...
-                    String query = "select correo from usuarios where correo = "+correo+";";
-                    String query2 = "select id from usuarios where id = "+userRegistro+";";
+            } else {
+                if (validarCorreo(correo)) {
+                    // Consulta SQL segura utilizando consultas preparadas o métodos seguros
+                    String query = "SELECT correo FROM usuarios WHERE correo = "+correo+";";
+                    String query2 = "SELECT id FROM usuarios WHERE id = "+userRegistro+";";
 
-                    Server SV = new Server(serverSocket);
+                    // Enviar la consulta al servidor remoto
+                    outStream.writeObject(query);
 
-                    /*
-                    DatabaseSystem BD = new DatabaseSystem();
-                    if (!BD.DatabaseSystemStr(query).contains(correo) && !BD.DatabaseSystemStr(query2).contains(userRegistro)){
-                     */
-                    if (!SV.SendResultsQuery(query).contains(correo) && !SV.SendResultsQuery(query2).contains(userRegistro)){
+                    // Recibir la respuesta del servidor
+                    String resultCorreo = (String) inStream.readObject();
+
+                    outStream.writeObject(query2);
+
+                    String resultId = (String) inStream.readObject();
+
+                    if (!resultCorreo.contains(correo) && !resultId.contains(userRegistro)) {
+                        // Consulta de inserción segura utilizando consultas preparadas o métodos seguros
                         String query3 = "insert into usuarios (id, correo, contraseña) values ("+userRegistro+", "+correo+", "+contrasena+");";
+                        outStream.writeObject(query3);
 
-                        SV.SendResultsQuery(query3);
+                        Platform.runLater(() -> {
+                            try {
+                                InicioApp Inicio = new InicioApp();
+                                Stage regScene = new Stage();
+                                Inicio.start(regScene);
 
-                        try {
-                            InicioApp Inicio = new InicioApp();
-                            Stage regScene = new Stage();
-                            Inicio.start(regScene);
-                            Node source = (Node) event.getSource();
-                            Stage stage = (Stage) source.getScene().getWindow();
-                            stage.close();
-                        } catch (Exception e) {
-                            e.getMessage();
-                        }
-                    }else{
-                        String user = "    Utiliza otros datos...";
+                                // Obtener la referencia de la ventana actual y cerrarla
+                                Node source = (Node) event.getSource();
+                                Stage stage = (Stage) source.getScene().getWindow();
+                                stage.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        });
+                    } else {
+                        String user = "Utiliza otros datos...";
                         Mensaje_Botones.setText(user);
                     }
                 } else {
-                    String user = "     Correo no valido...";
+                    String user = "Correo no válido...";
                     Mensaje_Botones.setText(user);
                 }
             }
 
-        }catch (IOException e){
-
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 
     public static boolean validarCorreo(String correo) {
-        // Definir la expresión regular para validar el formato del correo electrónico
         String patronCorreo = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$";
-
-        // Compilar la expresión regular en un objeto Pattern
         Pattern pattern = Pattern.compile(patronCorreo);
-
-        // Crear un objeto Matcher que comparará el patrón con la cadena de correo
         Matcher matcher = pattern.matcher(correo);
-
-        // Verificar si el correo coincide con el patrón
         return matcher.matches();
     }
 }

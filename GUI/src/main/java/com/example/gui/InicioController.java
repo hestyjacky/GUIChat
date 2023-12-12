@@ -31,16 +31,19 @@ public class InicioController extends encabezado {
     @FXML
     protected void SignUp_ButtonClick(ActionEvent event){
         Mensaje_Botones.setText("Abriendo página de registro...");
-        try {
-            RegistroApp Registro = new RegistroApp();
-            Stage regScene = new Stage();
-            Registro.start(regScene);
-            Node source3 = (Node) event.getSource();
-            Stage stage3 = (Stage) source3.getScene().getWindow();
-            stage3.close();
-        } catch (Exception e) {
-            e.getMessage();
-        }
+        Platform.runLater(() -> {
+            try {
+                RegistroApp Registro = new RegistroApp();
+                Stage regScene = new Stage();
+                Registro.start(regScene);
+                Node source3 = (Node) event.getSource();
+                Stage stage3 = (Stage) source3.getScene().getWindow();
+                stage3.close();
+            } catch (Exception e) {
+                System.err.println("Error al abrir página de registro...");
+                e.getMessage();
+            }
+        });
     }
     @FXML
     protected void LogIn_ButtonClick(ActionEvent event) {
@@ -64,11 +67,14 @@ public class InicioController extends encabezado {
 
                 // Enviar la consulta al servidor remoto
                 outStream.writeObject(query);
-                
+
                 // Recibir la respuesta del servidor
                 String result = (String) inStream.readObject();
 
                 if (result.contains(contrasena) || result.contains(correo)) {
+                    String[] usuario = result.split("\t");
+                    String usr = usuario[0];
+
                     // Operaciones en el hilo de la interfaz de usuario
                     Platform.runLater(() -> {
                         Node source = (Node) event.getSource();
@@ -76,8 +82,9 @@ public class InicioController extends encabezado {
                         stage.close();
 
                         try {
-                            Siguiente_Ventana(event, result, correo);
+                            Siguiente_Ventana(event, usr, correo);
                         } catch (Exception e) {
+                            System.err.println("Error al abrir página de menu...");
                             e.printStackTrace();
                         }
                     });
@@ -88,7 +95,7 @@ public class InicioController extends encabezado {
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("No se estableció la conexión");
             e.printStackTrace();
-            Mensaje_Botones.setText("Error de conexión...");
+            //Mensaje_Botones.setText("Error de conexión...");
         }
     }
     public static boolean validarCorreo(String correo) {
