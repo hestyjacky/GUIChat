@@ -1,3 +1,11 @@
+.miVBox {
+    -fx-background-image: url('/Babble%20Hub.png');
+    -fx-background-size: cover;
+    -fx-border-radius: 60px;
+    -fx-background: #FFF;
+
+}
+
 .profile-layout{
     -fx-background-color: #EBC95E;
     -fx-background-radius: 50 50 50 50;

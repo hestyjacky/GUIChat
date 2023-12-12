@@ -37,26 +37,23 @@ public class ClientController implements Initializable {
     @FXML
     private ScrollPane sp_main;
     private Client client;
-    //Scanner scanner = new Scanner(System.in);
     public String username;
-
     public void setUser(String username){
         this.username = username;
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         try{
             Socket socket = new Socket("localhost", 1408); // ip ---------
-            client = new Client(socket, username); // ------ en vez de username pon "heriberto"
-            System.out.println("connected");
+            System.out.println("conexion para el chat");
+            client = new Client(socket, "user");
+            System.out.println("connected2");
         }catch (IOException e){
             System.err.println("error en initialize clientController");
-
         }
-
         nombre.setText(username);
+        System.out.println("connected3");
 
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
@@ -65,7 +62,9 @@ public class ClientController implements Initializable {
             }
         });
 
+        System.out.println("connected4");
         client.receiveMessageFromServer(vbox_messages);
+        System.out.println("connected5");
 
         button_send.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -91,7 +90,11 @@ public class ClientController implements Initializable {
                 }
             }
         });
+
+
+        System.out.println("connected6");
     }
+
 
     public static void addLabel(String messageFromServer, VBox vbox){
         HBox hBox = new HBox();
@@ -111,4 +114,34 @@ public class ClientController implements Initializable {
             }
         });
     }
+/*
+    @FXML
+    private void sendMessage(ActionEvent event) {
+        Thread thread = new Thread(() -> {
+            String messageToSend = tf_messages.getText();
+            if (!messageToSend.isEmpty()) {
+                HBox hBox = new HBox();
+                hBox.setAlignment(Pos.CENTER_RIGHT);
+                hBox.setPadding(new Insets(5, 5, 5, 10));
+
+                Text text = new Text(messageToSend);
+                TextFlow textFlow = new TextFlow(text);
+
+                textFlow.setStyle("-fx-color: rgb(239,242,255); -fx-background-color: rgb(15,125,142); -fx-background-radius: 20px");
+                textFlow.setPadding(new Insets(5, 10, 5, 10));
+
+                text.setFill(Color.color(0.934, 0.945, 0.996));
+                hBox.getChildren().add(textFlow);
+                vbox_messages.getChildren().add(hBox);
+
+                client.sendMessagesToServer(messageToSend);
+                tf_messages.clear();
+            }
+        });
+
+        thread.setDaemon(true);
+        thread.start();
+    }
+
+ */
 }

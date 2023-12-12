@@ -45,18 +45,18 @@ public class MenuInicialController extends encabezado implements Initializable {
             outStream.writeObject(query);
 
             // Recibir la respuesta del servidor
-            String contenido = (String) inStream.readObject();
+            String contenido = (String) inStream.readObject(); // recibo el resultado del query
 
             // Eliminar todos los caracteres de tabulación (\t)
             contenido = contenido.replace("\t", "");
 
             // Dividir la cadena por cada salto de línea (\n)
-            String[] contenidoSplit = contenido.split("\n");
+            String[] contenidoSplit = contenido.split("\n"); // lo hago un arreglo
 
             ObservableList<String> items = FXCollections.observableArrayList(
-                    contenidoSplit
+                    contenidoSplit // vacio el arreglo
             );
-            ListView.setItems(items);
+            ListView.setItems(items); // muestro la lista con el contenido del arreglo
 
 
             // Configurar el evento de selección en el ListView
@@ -84,7 +84,7 @@ public class MenuInicialController extends encabezado implements Initializable {
             stage.setScene(new Scene(loader.load()));
 
             // Obtener el controlador de la ventana de detalles
-            VentanaDetalles ventanaDetallesController = loader.getController();
+            MenuInicialController.VentanaDetalles ventanaDetallesController = loader.getController();
             ventanaDetallesController.setDetalle(selectedItem);
 
             ClientController clientController = new ClientController();
@@ -93,6 +93,7 @@ public class MenuInicialController extends encabezado implements Initializable {
             // Mostrar la ventana de detalles
             stage.showAndWait();
         } catch (IOException e) {
+            System.err.println("Error abriendo el chat...");
             e.printStackTrace();
         }
     }

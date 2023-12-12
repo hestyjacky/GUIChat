@@ -40,6 +40,18 @@ public class Server {
         }
     }
 
+    // Método para enviar un mensaje a todos los clientes
+    public static void sendMessageToAllClients(String message) {
+        try {
+            for (ObjectOutputStream clientStream : outputStreams) {
+                clientStream.writeObject(message);
+                clientStream.flush();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = new ServerSocket(1408);
         Server server = new Server(serverSocket);
@@ -50,7 +62,6 @@ public class Server {
         DatabaseSystem BD = new DatabaseSystem();
         return BD.DatabaseSystemStr(query);
     }
-
     private static class ClientHandler extends Thread {
         private Socket socket;
         private ObjectInputStream inStream;
@@ -66,23 +77,27 @@ public class Server {
                 inStream = new ObjectInputStream(socket.getInputStream());
 
                 while (true) {
-                    // Lee la consulta enviada por el cliente
-                    Object queryObject = inStream.readObject();
+                    // Lee el mensaje enviado por el cliente
+                    Object messageObject = inStream.readObject();
 
-                    if (queryObject instanceof String) {
-                        String query = (String) queryObject;
-                        System.out.println("Consulta recibida: " + query);
+                    String message = (String) messageObject;
+                    System.out.println("Mensaje recibido: " + message);
 
-                        // Procesa la consulta y envía la respuesta a todos los clientes
-                        String result = SendResultsQuery(query);
-
+                    if (!message.endsWith(";")){
+                        // Envía el mensaje a todos los clientes
+                        sendMessageToAllClients(message);
+                    }else{
+                        String result = SendResultsQuery(message);
                         // Envia la respuesta a todos los clientes
                         for (ObjectOutputStream clientStream : outputStreams) {
-                            clientStream.writeObject(result);
-                            clientStream.flush();
+                            try {
+                                clientStream.writeObject(result);
+                                clientStream.flush();
+                            } catch (IOException e) {
+                                System.out.println("error en enviar respuestas a los clientes?");
+                                throw new RuntimeException(e);
+                            }
                         }
-                    } else {
-                        System.err.println("Tipo de objeto no esperado: " + queryObject.getClass());
                     }
                 }
             } catch (IOException | ClassNotFoundException e) {

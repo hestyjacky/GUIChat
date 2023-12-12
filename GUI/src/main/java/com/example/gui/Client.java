@@ -70,19 +70,4 @@ public class Client {
             e.printStackTrace();
         }
     }
-
-    /*
-    public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter your username for the groupchat: ");
-        String username = scanner.nextLine();
-        Socket socket = new Socket("localhost", 1408);
-        Client client = new Client(socket, username);
-        client.listenForMessage();
-        client.sendMessageToServer();
-    }
-
-
-     */
-
 }

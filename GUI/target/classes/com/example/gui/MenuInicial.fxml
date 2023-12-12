@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1310.0" styleClass="white-background" stylesheets="@estilos_MenuInicial.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MenuInicialController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1310.0" styleClass="miVBox" stylesheets="@estilos_MenuInicial.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MenuInicialController">
     <top>
         <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="1310.0" BorderPane.alignment="CENTER_RIGHT">
             <padding>
@@ -21,10 +21,8 @@
 
             <Button fx:id="Boton_Salir" maxHeight="25" maxWidth="25" minHeight="25" minWidth="25" onAction="#Salir_encabezado" style="-fx-background-color: #d27870; -fx-border-radius: 10;">
             </Button>
-
         </HBox>
     </top>
-
     <left>
         <!--" recuadro de logo  "-->
         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="320.0" BorderPane.alignment="CENTER">
@@ -60,8 +58,6 @@
             </BorderPane.margin>
         </VBox>
     </left>
-
-
     <center>
         <HBox prefHeight="628.0" prefWidth="950.0" BorderPane.alignment="CENTER">
             <children>
@@ -69,10 +65,6 @@
                     <children>
                         <HBox prefHeight="30.0" prefWidth="600.0">
                             <children>
-
-
-
-
                                 <Label prefHeight="30.0" prefWidth="715.0" text="Contactos">
                                     <font>
                                         <Font name="Corbel Bold" size="40.0" />
@@ -84,40 +76,18 @@
                                         <Insets />
                                     </opaqueInsets>
                                 </Label>
-
-
-
                                 <Button mnemonicParsing="false" prefHeight="46.0" prefWidth="200.0" text="Buscar contacto">
                                     <font>
                                         <Font name="Corbel Bold" size="18.0" />
                                     </font>
                                 </Button>
-
-
-
-
-
-
                             </children>
                             <VBox.margin>
                                 <Insets top="10.0" />
                             </VBox.margin>
                         </HBox>
-
-
-
-
-
-
-
-
-
-
-
                         <HBox alignment="CENTER" prefHeight="101.0" prefWidth="930.0">
-
                         </HBox>
-
                         <HBox style="-fx-background-radius: 0 0 0 0; -fx-background-color: #78cbc1">
                             <children>
                                 <Label alignment="CENTER" prefHeight="52.0" prefWidth="445.0" text="Nombre">
@@ -136,24 +106,17 @@
                                 <Insets left="20.0" right="20.0" />
                             </HBox.margin>
                         </HBox>
-
                     </children>
                     <opaqueInsets>
                         <Insets top="30.0" />
                     </opaqueInsets>
 
-
                     <HBox.margin>
                         <Insets bottom="30.0" right="20.0" top="30.0" />
                     </HBox.margin>
 
-
-
-
                     <ScrollPane prefHeight="278.0" prefWidth="827.0" styleClass="transparent" stylesheets="@estilos_MenuInicial.css">
                         <content>
-
-                            <!-- Recuadro de contactosssssssss -->
                             <VBox fx:id="ContactLayout" minHeight="0.0" minWidth="0.0" prefHeight="281.0" prefWidth="914.0">
                                 <children>
                                     <HBox>
