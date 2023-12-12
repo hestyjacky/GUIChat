@@ -26,7 +26,7 @@ public class Server {
                 new ClientHandler(socket, outStream).start();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
@@ -48,7 +48,7 @@ public class Server {
                 clientStream.flush();
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
     }
 
@@ -85,7 +85,10 @@ public class Server {
 
                     if (!message.endsWith(";")){
                         // Envía el mensaje a todos los clientes
-                        sendMessageToAllClients(message);
+                        ClientHandler1 clientHandler1 = new ClientHandler1(socket,message);
+
+                        Thread thread = new Thread(clientHandler1);
+                        thread.start();
                     }else{
                         String result = SendResultsQuery(message);
                         // Envia la respuesta a todos los clientes
@@ -101,7 +104,7 @@ public class Server {
                     }
                 }
             } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+                //e.printStackTrace();
             } finally {
                 // Elimina la conexión del cliente cuando se cierra
                 outputStreams.remove(outStream);
@@ -116,7 +119,7 @@ public class Server {
                         socket.close();
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    //e.printStackTrace();
                 }
             }
         }

@@ -23,11 +23,28 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
-public class ClientController implements Initializable {
-    public Label nombre;
+public class ClientController extends encabezado implements Initializable{
+
     @FXML
     private Button button_send;
     @FXML
@@ -36,10 +53,14 @@ public class ClientController implements Initializable {
     private VBox vbox_messages;
     @FXML
     private ScrollPane sp_main;
-    private Client client;
-    public String username;
-    public void setUser(String username){
+    public Client client;
+    private String username, ChatSeleccionado;
+    @FXML
+    public Label nombre;
+
+    public void setDatos(String username, String ChatSeleccionado){
         this.username = username;
+        this.ChatSeleccionado = ChatSeleccionado;
     }
 
     @Override
@@ -47,14 +68,11 @@ public class ClientController implements Initializable {
         try{
             Socket socket = new Socket("localhost", 1408); // ip ---------
             System.out.println("conexion para el chat");
-            client = new Client(socket, "user");
-            System.out.println("connected2");
+            client = new Client(socket, username);
         }catch (IOException e){
             System.err.println("error en initialize clientController");
         }
-        nombre.setText(username);
-        System.out.println("connected3");
-
+        nombre.setText(ChatSeleccionado);
         vbox_messages.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue) {
@@ -62,9 +80,7 @@ public class ClientController implements Initializable {
             }
         });
 
-        System.out.println("connected4");
         client.receiveMessageFromServer(vbox_messages);
-        System.out.println("connected5");
 
         button_send.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -90,9 +106,6 @@ public class ClientController implements Initializable {
                 }
             }
         });
-
-
-        System.out.println("connected6");
     }
 
 

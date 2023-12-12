@@ -6,11 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="f1e280d9-44a2-423f-a09a-2bbcd3481699" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientHandler1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ServChats.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ServChats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/ChatInd.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/src/main/resources/com/example/gui/ChatInd.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/ClientController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController$VentanaDetalles.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController$VentanaDetalles.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/MenuInicialController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/USERS/usuarios.csv" beforeDir="false" afterPath="$PROJECT_DIR$/USERS/usuarios.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Server$ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Server$ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/target/classes/com/example/gui/Server.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +92,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InicioApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="InicioApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.gui.InicioApp" />
       <module name="GUI" />
       <extension name="coverage">
@@ -186,7 +195,7 @@
       <workItem from="1702235098980" duration="25460000" />
       <workItem from="1702271367082" duration="1984000" />
       <workItem from="1702317186981" duration="6859000" />
-      <workItem from="1702329140663" duration="26136000" />
+      <workItem from="1702329140663" duration="31778000" />
     </task>
     <servers />
   </component>
@@ -218,48 +227,73 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
-          <line>49</line>
+          <line>69</line>
           <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="101" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="118" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="119" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/InicioController.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="124" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java</url>
           <line>55</line>
           <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientHandler1.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientHandler1.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Server.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
+          <line>98</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="152" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="154" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/Client.java</url>
@@ -281,7 +315,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientController.java</url>
-          <line>98</line>
+          <line>115</line>
           <properties class="com.example.gui.ClientController" method="addLabel">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -290,12 +324,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/MenuInicialController.java</url>
-          <line>76</line>
+          <line>78</line>
           <properties class="com.example.gui.MenuInicialController" method="abrirVentanaDetalles">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/GUI/src/main/java/com/example/gui/ClientHandler1.java</url>
+          <line>55</line>
+          <properties class="com.example.gui.ClientHandler1" method="broadcastMessage">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="137" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

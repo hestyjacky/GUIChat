@@ -25,6 +25,8 @@ public class MenuInicialController extends encabezado implements Initializable {
     @FXML
     private Label Label_user, Label_email;
     private String UsuarioEnSesion, Correo;
+    private String ChatSeleccionado;
+
 
     public void setDatos(String UsuarioEnSesion, String Correo) {
         this.UsuarioEnSesion = UsuarioEnSesion;
@@ -61,10 +63,10 @@ public class MenuInicialController extends encabezado implements Initializable {
 
             // Configurar el evento de selección en el ListView
             ListView.setOnMouseClicked(event -> {
-                String selectedItem = ListView.getSelectionModel().getSelectedItem();
-                if (selectedItem != null) {
-                    System.out.println(selectedItem);
-                    abrirVentanaDetalles(selectedItem);
+                String ChatSeleccionado = ListView.getSelectionModel().getSelectedItem();
+                if (ChatSeleccionado != null) {
+                    System.out.println(ChatSeleccionado);
+                    abrirVentanaDetalles(ChatSeleccionado);
                 }
             });
 
@@ -79,12 +81,16 @@ public class MenuInicialController extends encabezado implements Initializable {
             // Cargar la ventana de detalles desde el archivo FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ChatInd.fxml"));
             Stage stage = new Stage();
+
+            this.ChatSeleccionado = selectedItem;
+            ClientController clientController = new ClientController();
+            clientController.setDatos(UsuarioEnSesion,this.ChatSeleccionado);
+
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Detalles");
+            stage.setTitle("chats");
             stage.setScene(new Scene(loader.load()));
 
-            ClientController clientController = new ClientController();
-            clientController.setUser(UsuarioEnSesion);
+
 
             // Mostrar la ventana de detalles
             stage.showAndWait();
