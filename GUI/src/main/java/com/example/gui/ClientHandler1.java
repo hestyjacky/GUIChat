@@ -48,7 +48,9 @@ public class ClientHandler1 implements Runnable{
         String messageFromClient;
         while (socket.isConnected()){
             messageFromClient = message;
-            broadcastMessage(messageFromClient);
+            if (!messageFromClient.isEmpty()){
+                broadcastMessage(messageFromClient);
+            }
         }
     }
 

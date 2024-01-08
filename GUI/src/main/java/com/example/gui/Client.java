@@ -32,18 +32,20 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("Error sending message to the client");
-            closeEverything(socket, bufferedReader, bufferedWriter);
+            //closeEverything(socket, bufferedReader, bufferedWriter);
         }
     }
 
-    public void receiveMessageFromServer(VBox vBox) {
+    public synchronized void receiveMessageFromServer(VBox vBox) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 while (socket.isConnected()) {
                     try {
                         String messageFromServer = bufferedReader.readLine();
-                        ServidorController.addLabel(messageFromServer, vBox);
+                        if (!messageFromServer.isEmpty()){
+                            ServidorController.addLabel(messageFromServer, vBox);
+                        }
                     } catch (IOException e) {
                         e.printStackTrace();
                         System.out.println("Error reciving message from the server");
